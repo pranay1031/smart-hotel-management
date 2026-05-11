@@ -1,0 +1,277 @@
+================================================================================
+  SMART HOTEL MANAGEMENT — SERVICENOW SCRIPTS & FLOWS REFERENCE
+  App Scope: x_1939650_smart_0
+================================================================================
+
+
+════════════════════════════════════════════════════════════════════════════════
+  SECTION A — BUSINESS RULES
+════════════════════════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────────────────────────
+Rule 1 — Auto-Calculate Booking Price
+  Table  : x_1939650_smart_0_bookings
+  When   : Before | Insert & Update
+  Fields : room, check_in_date, check_out_date
+────────────────────────────────────────────────────────────────────────────────
+
+(function executeRule(current, previous) {
+    if (current.room && current.check_in_date && current.check_out_date) {
+        var room = new GlideRecord('x_1939650_smart_0_room');
+        if (room.get(current.room)) {
+            var checkIn  = new GlideDateTime(current.check_in_date.toString());
+            var checkOut = new GlideDateTime(current.check_out_date.toString());
+            var ms = checkOut.getNumericValue() - checkIn.getNumericValue();
+            var nights = Math.ceil(ms / 86400000);
+            if (nights < 1) nights = 1;
+            current.total_price = parseFloat(room.price_per_night) * nights;
+        }
+    }
+})(current, previous);
+
+
+────────────────────────────────────────────────────────────────────────────────
+Rule 2 — Generate Booking ID
+  Table  : x_1939650_smart_0_bookings
+  When   : Before | Insert
+────────────────────────────────────────────────────────────────────────────────
+
+(function executeRule(current, previous) {
+    if (!current.booking_id || current.booking_id == '') {
+        current.booking_id = 'BK-' + new Date().getFullYear() + '-' +
+            Math.floor(Math.random() * 90000 + 10000);
+    }
+})(current, previous);
+
+
+────────────────────────────────────────────────────────────────────────────────
+Rule 3 — Generate Order ID
+  Table  : x_1939650_smart_0_food_orders
+  When   : Before | Insert
+────────────────────────────────────────────────────────────────────────────────
+
+(function executeRule(current, previous) {
+    if (!current.u_order_id || current.u_order_id == '') {
+        current.u_order_id = 'ORD-' + new Date().getFullYear() + '-' +
+            Math.floor(Math.random() * 90000 + 10000);
+    }
+})(current, previous);
+
+
+────────────────────────────────────────────────────────────────────────────────
+Rule 4 — Generate Incident ID
+  Table  : x_1939650_smart_0_guest_incidents
+  When   : Before | Insert
+────────────────────────────────────────────────────────────────────────────────
+
+(function executeRule(current, previous) {
+    if (!current.incident_id || current.incident_id == '') {
+        current.incident_id = 'INC-' + new Date().getFullYear() + '-' +
+            Math.floor(Math.random() * 90000 + 10000);
+    }
+})(current, previous);
+
+
+────────────────────────────────────────────────────────────────────────────────
+Rule 5 — Auto-Assign Urgent Incidents
+  Table     : x_1939650_smart_0_guest_incidents
+  When      : After | Insert
+  Condition : priority is urgent
+────────────────────────────────────────────────────────────────────────────────
+
+(function executeRule(current, previous) {
+    var staff = new GlideRecord('sys_user');
+    staff.addActiveQuery();
+    staff.addQuery('roles', 'x_1939650_smart_0.manager');
+    staff.setLimit(1);
+    staff.query();
+    if (staff.next()) {
+        var inc = new GlideRecord('x_1939650_smart_0_guest_incidents');
+        if (inc.get(current.sys_id)) {
+            inc.assigned_to_staff = staff.sys_id;
+            inc.status = 'Assigned';
+            inc.update();
+        }
+    }
+})(current, previous);
+
+
+────────────────────────────────────────────────────────────────────────────────
+Rule 6 — Generate Task ID
+  Table  : x_1939650_smart_0_staff_tasks
+  When   : Before | Insert
+────────────────────────────────────────────────────────────────────────────────
+
+(function executeRule(current, previous) {
+    if (!current.task_id || current.task_id == '') {
+        current.task_id = 'TSK-' + new Date().getFullYear() + '-' +
+            Math.floor(Math.random() * 90000 + 10000);
+    }
+})(current, previous);
+
+
+────────────────────────────────────────────────────────────────────────────────
+Rule 7 — Generate Chat ID
+  Table  : x_1939650_smart_0_chat_logs
+  When   : Before | Insert
+  Note   : Field is user_name (NOT u_user_name — updated)
+────────────────────────────────────────────────────────────────────────────────
+
+(function executeRule(current, previous) {
+    if (!current.u_chat_id || current.u_chat_id == '') {
+        current.u_chat_id = 'CHT-' + new Date().getFullYear() + '-' +
+            Math.floor(Math.random() * 90000 + 10000);
+    }
+    // Field reference corrected: user_name (not u_user_name)
+    // Use current.user_name wherever the chat log user name is read/written
+})(current, previous);
+
+
+════════════════════════════════════════════════════════════════════════════════
+  SECTION B — SCHEDULED JOBS
+════════════════════════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────────────────────────
+Job 1 — Monitor SLA Breaches
+  Run    : Every 15 minutes (recommended)
+  Note   : Field is current_time (NOT u_current_time — updated)
+────────────────────────────────────────────────────────────────────────────────
+
+(function scheduledJob() {
+    var sla = new GlideRecord('x_1939650_smart_0_sla_metrics');
+    sla.addQuery('u_sla_status', 'On Track');
+    sla.query();
+    while (sla.next()) {
+        var now = new GlideDateTime();
+        // Updated field: current_time (was u_current_time)
+        sla.current_time = now; // stamp current check time
+        var expRes = sla.u_expected_resolution.toString();
+        if (expRes != '' && now.compareTo(new GlideDateTime(expRes)) > 0) {
+            sla.u_sla_status = 'Breached';
+            sla.u_escalation_level = parseInt(sla.u_escalation_level) + 1;
+            sla.update();
+        }
+    }
+})();
+
+
+────────────────────────────────────────────────────────────────────────────────
+Job 2 — Auto-Close Resolved Incidents
+  Run    : Daily
+────────────────────────────────────────────────────────────────────────────────
+
+(function scheduledJob() {
+    var cutoff = new GlideDateTime();
+    cutoff.addSeconds(-86400);
+    var inc = new GlideRecord('x_1939650_smart_0_guest_incidents');
+    inc.addQuery('status', 'Resolved');
+    inc.addQuery('resolved_date', '<', cutoff.getValue());
+    inc.query();
+    while (inc.next()) {
+        inc.status = 'Closed';
+        inc.update();
+    }
+})();
+
+
+────────────────────────────────────────────────────────────────────────────────
+Job 3 — Process Pending Notifications
+  Run    : Every 5 minutes (recommended)
+────────────────────────────────────────────────────────────────────────────────
+
+(function scheduledJob() {
+    var notif = new GlideRecord('x_1939650_smart_0_notifications');
+    notif.addQuery('status', 'pending');
+    notif.query();
+    while (notif.next()) {
+        notif.status = 'Sent';
+        notif.sent_date = new GlideDateTime();
+        notif.update();
+    }
+})();
+
+
+════════════════════════════════════════════════════════════════════════════════
+  SECTION C — FLOW DESIGNER
+════════════════════════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────────────────────────
+Flow 1 — Booking Confirmation
+  Name    : x_1939650_smart_0_booking_flow
+  Run as  : System User
+  Trigger : Record Created → x_1939650_smart_0_bookings
+  Condition: status is confirmed
+────────────────────────────────────────────────────────────────────────────────
+
+  ACTION 1 — Update Record
+  ┌──────────────────────────────────────────────────────┐
+  │ Record : Trigger → room (reference)                  │
+  │ Field  : status                                      │
+  │ Value  : occupied                                    │
+  └──────────────────────────────────────────────────────┘
+
+  ACTION 2 — Create Record
+  ┌──────────────────────────────────────────────────────┐
+  │ Table             : x_1939650_smart_0_notifications  │
+  │ notification_type : Email                            │
+  │ subject           : Booking Confirmed                │
+  │ message           : Your booking has been confirmed  │
+  │ status            : pending                          │
+  │ related_to        : Trigger → sys_id                 │
+  └──────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────
+Flow 2 — Incident Auto-Assignment
+  Name    : x_1939650_smart_0_incident_flow
+  Trigger : Record Created → x_1939650_smart_0_guest_incidents
+────────────────────────────────────────────────────────────────────────────────
+
+  ACTION 1 — Update Record (current incident)
+  ┌──────────────────────────────────────────────────────┐
+  │ Field  : status                                      │
+  │ Value  : Assigned                                    │
+  └──────────────────────────────────────────────────────┘
+
+  ACTION 2 — Create Record
+  ┌──────────────────────────────────────────────────────┐
+  │ Table              : x_1939650_smart_0_sla_metrics   │
+  │ u_incident         : Trigger → sys_id                │
+  │ u_created_time     : Trigger → sys_created_on        │
+  │ u_sla_status       : On Track                        │
+  │ u_escalation_level : 1                               │
+  └──────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────
+Flow 3 — Food Order Processing
+  Name    : x_1939650_smart_0_food_order_flow
+  Trigger : Record Created → x_1939650_smart_0_food_orders
+────────────────────────────────────────────────────────────────────────────────
+
+  ACTION 1 — Create Record
+  ┌──────────────────────────────────────────────────────┐
+  │ Table            : x_1939650_smart_0_staff_tasks     │
+  │ task_type        : Delivery                          │
+  │ room_number      : Trigger → u_room_number           │
+  │ task_description : Deliver food order                │
+  │ task_priority    : Medium                            │
+  │ status           : pending                           │
+  └──────────────────────────────────────────────────────┘
+
+
+════════════════════════════════════════════════════════════════════════════════
+  FIELD CORRECTIONS SUMMARY
+════════════════════════════════════════════════════════════════════════════════
+
+  Location                  | Old Field Name   | New Field Name
+  --------------------------|------------------|----------------
+  Chat Logs table           | u_user_name      | user_name
+  Room table — room_number  | Integer          | String
+  SLA Metrics table         | u_current_time   | current_time
+  Business Rule 7 comment   | u_user_name ref  | user_name ref
+  Scheduled Job 1           | sla.u_current_time | sla.current_time
+
+================================================================================
+  END OF FILE
+================================================================================
