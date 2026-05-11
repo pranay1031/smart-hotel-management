@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section action="DELETE" caption="" section_id="d998747fc3e443100a7d76ec050131e1" sys_domain="global" table="x_1939650_smart_0_notification_id" version="3" view="">
+        <sys_ui_section action="DELETE">
+            <caption/>
+            <header>false</header>
+            <name>x_1939650_smart_0_notification_id</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-05-06 05:28:06</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d998747fc3e443100a7d76ec050131e1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_1939650_smart_0_notification_id</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+            <sys_update_name>sys_ui_section_d998747fc3e443100a7d76ec050131e1</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-05-06 05:28:06</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</application>
+        <file_path/>
+        <instance_id>9e5f5d94db82f554ae4c9027c596193d</instance_id>
+        <instance_name>dev189725</instance_name>
+        <name>sys_ui_section_d998747fc3e443100a7d76ec050131e1</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_section caption="" section_id="d998747fc3e443100a7d76ec050131e1" sys_domain="global" table="x_1939650_smart_0_notification_id" version="3" view=""><sys_ui_section action="INSERT_OR_UPDATE"><caption/><header>false</header><name>x_1939650_smart_0_notification_id</name><roles/><sys_class_name>sys_ui_section</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-05-06 05:28:06</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>d998747fc3e443100a7d76ec050131e1</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_1939650_smart_0_notification_id</sys_name><sys_overrides/><sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package><sys_policy/><sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope><sys_update_name>sys_ui_section_d998747fc3e443100a7d76ec050131e1</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-05-06 05:28:06</sys_updated_on><sys_user/><title>true</title><view display_value="Default view" name="NULL">Default view</view><view_name/></sys_ui_section></sys_ui_section></record_update>]]></payload>
+        <payload_hash>-1196400870</payload_hash>
+        <record_name>Notification ID</record_name>
+        <reverted_from/>
+        <source>dd4f5ea7c36403100a7d76ec050131a7</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 05:28:06</sys_created_on>
+        <sys_id>1598747fc3e443100a7d76ec050131e6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19dfbc1f9b50000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 05:28:06</sys_updated_on>
+        <type>Form Layout</type>
+        <update_guid>d198747f40e443108708352a5d4d44e6</update_guid>
+        <update_guid_history>d198747f40e443108708352a5d4d44e6:-1196400870</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 05:29:59</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_section">sys_ui_section</sys_db_object>
+        <sys_id>3ad1fd52b6494012947dce836bc30c21</sys_id>
+        <sys_metadata>d998747fc3e443100a7d76ec050131e1</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1939650_smart_0_notification_id</sys_name>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_parent display_value="">b898b8bfc3e443100a7d76ec0501319c</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_scope_delete display_value="">bbab13657d6f405b9f5419684e3d99c9</sys_scope_delete>
+        <sys_update_name>sys_ui_section_d998747fc3e443100a7d76ec050131e1</sys_update_name>
+        <sys_update_version display_value="sys_ui_section_d998747fc3e443100a7d76ec050131e1">1598747fc3e443100a7d76ec050131e6</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 05:29:59</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=integrated,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=3030000,viewActivatedIn=diagramming</attributes>
+        <authored_on_release_version>28100</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description>Process food orders and assign kitchen staff</description>
+        <display_name_after_preview/>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source/>
+        <internal_name>x_1939650_smart_0_food_order_flow</internal_name>
+        <label_cache>[]</label_cache>
+        <master_snapshot>21e25b3bc3e883100a7d76ec05013114</master_snapshot>
+        <master_snapshot_digest/>
+        <name>Food Order Flow</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id>add61b73c32c83100a7d76ec0501310c</remote_trigger_id>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:09:01</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ad4b873bc3a883100a7d76ec05013117</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Food Order Flow</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name>sys_hub_flow_ad4b873bc3a883100a7d76ec05013117</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-10 17:53:18</sys_updated_on>
+        <type>flow</type>
+        <updation_source/>
+        <version>2</version>
+        <version_record/>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=ad4b873bc3a883100a7d76ec05013117"/>
+    <sys_variable_value action="delete_multiple" query="document_key=ad4b873bc3a883100a7d76ec05013117"/>
+    <sys_flow_record_trigger action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition table="x_1939650_smart_0_food_orders">^EQ<item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <name/>
+        <on_delete>false</on_delete>
+        <on_insert>true</on_insert>
+        <on_update>false</on_update>
+        <published_version/>
+        <run_flow_in>background</run_flow_in>
+        <run_on_extended>false</run_on_extended>
+        <run_when_setting>both</run_when_setting>
+        <run_when_user_list/>
+        <run_when_user_setting>any</run_when_user_setting>
+        <sys_class_name>sys_flow_record_trigger</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:59:32</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>add61b73c32c83100a7d76ec0501310c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:59:32</sys_updated_on>
+        <table>x_1939650_smart_0_food_orders</table>
+        <trigger_definition/>
+    </sys_flow_record_trigger>
+    <sys_trigger_runner_mapping action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <data>{"run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any","run_on_extended":"false"}</data>
+        <identifier>ad4b873bc3a883100a7d76ec05013117</identifier>
+        <runner>FDTriggerRunner</runner>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:59:32</sys_created_on>
+        <sys_id>a9d61b73c32c83100a7d76ec0501310d</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:59:32</sys_updated_on>
+        <trigger display_value="">add61b73c32c83100a7d76ec0501310c</trigger>
+    </sys_trigger_runner_mapping>
+    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=ad4b873bc3a883100a7d76ec05013117^sys_idNOT INa9d61b73c32c83100a7d76ec0501310d"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=ad4b873bc3a883100a7d76ec05013117"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=ad4b873bc3a883100a7d76ec05013117^sys_idNOT IN2d4b873bc3a883100a7d76ec05013118"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>ad4b873bc3a883100a7d76ec05013117</id>
+        <name>x_1939650_smart_0_food_order_flow</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:09:01</sys_created_on>
+        <sys_id>2d4b873bc3a883100a7d76ec05013118</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:09:01</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=2d4b873bc3a883100a7d76ec05013118"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=ad4b873bc3a883100a7d76ec05013117^sys_idNOT INad6b0f3bc3a883100a7d76ec05013167,fd6b0f3bc3a883100a7d76ec050131a2"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id,uiTypeLabel=Document ID</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Food Order Flow">ad4b873bc3a883100a7d76ec05013117</model>
+        <model_id>ad4b873bc3a883100a7d76ec05013117</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_ad4b873bc3a883100a7d76ec05013117</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:09:34</sys_created_on>
+        <sys_id>ad6b0f3bc3a883100a7d76ec05013167</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:17:48</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=ad6b0f3bc3a883100a7d76ec05013167"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name,uiTypeLabel=Table Name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Food Order Flow">ad4b873bc3a883100a7d76ec05013117</model>
+        <model_id>ad4b873bc3a883100a7d76ec05013117</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_ad4b873bc3a883100a7d76ec05013117</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:09:34</sys_created_on>
+        <sys_id>fd6b0f3bc3a883100a7d76ec050131a2</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:17:48</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=fd6b0f3bc3a883100a7d76ec050131a2"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=ad4b873bc3a883100a7d76ec05013117"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=ad4b873bc3a883100a7d76ec05013117"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=ad4b873bc3a883100a7d76ec05013117^sys_idNOT IN9d6bcb3bc3a883100a7d76ec05013140"/>
+    <sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Food Order Flow">ad4b873bc3a883100a7d76ec05013117</flow>
+        <generation_source/>
+        <name>Created</name>
+        <published_version/>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:09:33</sys_created_on>
+        <sys_id>9d6bcb3bc3a883100a7d76ec05013140</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:42:19</sys_updated_on>
+        <trigger_definition display_value="Created">798916a0c31322002841b63b12d3ae7c</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/9VY2W7jNhT9FUFPLZACWrxEeZtmQQNMJ6jjaR+CVKBE0hZKk65IKfEM8u+91GLLWhw7VqbOSwDx0ryHh+eeS+bhu8lQQJh5YU5RwIh5ZkZckZgjNl0tCQwrPexztNCxBeIYKRGvzAsVJ+TMpLFYTMliyZCCyRQxCYMixiQ2L+wzM0UsIfcreYthJfh9tkyxplmE4fvZtz3XGw0tXy5QrHzLp0JgP1tHwjwcSciw+rOYfgNB464MhvOI4Zhw8+Lh8cxcohhyKJ3/ey0UaRAhDZHnECt0bddxLMs5H9jByA1sB7uIWBYsWCekBlq18LLZMXlWhGOC12Q0KIsJwnecrdYz5sB4Ts8CPcvoG6x+bul5lAD2kOSx9adfsJEPh3MRheRuqSLB85EcZx4ULFnwLzl+zSOhKGGq5BFGEgnrkaWGrEEUiOj9XDxNyoQ3Ec92VwSZCBFbfyGl4ihIFJGacBoxoN7PuZEiiTP0k+vLu8mV/9en6eVv1xN/cn0/ndxeTq+vzJdsX/6/iV4xR1hg8fPtvKwP/yYiTB9g4kuFVKJPXoZxtFSfQhWlpfhezjaCvhQcRxkvDVGHZUhui7rc/y5VW1anrsNKxlLbf1//0VRwPniYckcjhDBBHcoNaEW51Z23QFMtJFR3t0vDxcg+Ih5Y1v8k48Kb3qrihcCEXW2WMyE4m4GuI75MlGbrCXElfSV8hLFf4VFPBUyvyTrf28urCo4TDj/w1+fR1HFG25q/z5EEuA9QhyU32ZIQp5+LJScJNwQcHPwxwiQGapRROhu9XaBZwSi9J4yEqiIC+lVWv36PpIz4rIJ6nTTjoJFznQ7EZJRbynPLI5M/9lnETdLTGpm1Yj64km2b0oBQxxrrOrYtN6C2NbaGiGLXskKnUslNMJ0oVU0S71LRh9WzzMTI9pBeneICvFWthr1klG5rsCRBS6Swjct+oNk9QXM0tJr9uQf531qW+fDVtjp3ba3n7o9wiuAXeF8b3NMBKRNPYL1vcL8Ahf/MYpFwXLcjvaYRcWMzw/ip4O/nHp2QipjsBrA945Q8cEN7KVzEVz24n0vtwCMDYoHpueB3wdDzghA5lI5HY+LYNffbwGjF9iFc7xW1pW1y7XLAVuGkbXo7wPuOANjwwYMBHu+AhTBb/S+PfQyne5oT7gPU2GfayxqGN2MRJmWs32pvpE439X1sxdNzLxza43E4hlcLVDwdkADZA2eIvPHIPR/WKr4BZRdM1cLMD3nLyJXMgHS4wdc8dFrP8/eUrSRK6XZ0eJfmcI/NfoPyJJVOqY/FyExFxMYXwX+53cwz7gk0wOxB21e73geFPljjfWEEQs0b9wVI/SuMb6XW98wOVk7uSVUTSbq916OfVGRwPvSo224x1GuzmA2Ybpgnf73Ys0LSzlpru2fsK/i0tW46LwZvkHBNJtUbw44rTV+k2L2T4rwfKe7R16iyFjvfkW8B+4FaWHavOKaP6ZzEF7Rq3lfCgIABSYyIGsV/Egk2gpWh5gQoZXBfhoSGzn6sa1e7SBPKWsE/Fkh+A290Mxg2igvU6TWqmhT6fQETPEbDodtxH/bqL+A2QK/gPfm2dXBVpG1FtrN3HbZufc3W7lWR7LYi9uxLve66vTkdt+vW9vTaro9vPLve7y0oTrSlPP4HLurj/E0fAAA=</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>record_create</trigger_type>
+        <updation_source/>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=ad4b873bc3a883100a7d76ec05013117^sys_idNOT IN69dbcb7bc3a883100a7d76ec05013125,a2dc833bc3a883100a7d76ec050131f4"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Create Record">2de05916c31332002841b63b12d3aee1</action_type>
+        <action_type_parent display_value="Create Record">02f0b88cc3c632002841b63b12d3aeff</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Food Order Flow">ad4b873bc3a883100a7d76ec05013117</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:11:28</sys_created_on>
+        <sys_id>69dbcb7bc3a883100a7d76ec05013125</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:42:19</sys_updated_on>
+        <ui_id>ca203779-dc97-47c5-8bad-901bfd7488fd</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/9VU32vbMBD+V4ye3SDbjWn8NiiBPayFtfQlS4RsnRMx+cckOY1X+r/vZClZ1y1QxmBbXoK+O333fXc6r56IFKQgeQJ0vkjyKkuyLKU0vbpMyjwrk1RkHOCSxKTlDWCm5aUCNh1isudqcOCBJYtskc8pMw3XluG/5XXNLDefDeYJaXrFx4eQfueC0X0IVjuphIaWFKt1THqukduCJsXTq5Ade2CKl6CQ497piG68jrd6+OHyGU+uymus08IJojGBg4VWANaruTIQk4a3gttOj6SwekBAAxe3rRpPGTvZWiQkLvdg5Fdkv6Iurwa0VoGPnY4sNMvD1a6TFdz2VnatRyZhIdipoWlvvAnXZqj5oOyxzYgMBvmgd5KdiKCovtt1jx+PBZeyndyFoOoqrk4nbq2W5WDBuHmAggaJWMP7XrZb1utuL6fLqKWZbRUeZrXqHrGokdt2xisnfIYd4rMl4tcT/MC1dC4+IA1efp7csy+Dq+t9BMXMm8YEU2nZ23dIt4cg7jk+Pl4BdHF28En5fdDTezUvHq57oMxN/NNAaSYEKOTX42bC0cNUFR348LUPR3XXiWh6E0W0em+hMetNr2WnpR19ZgNCDs0Gt8AOxkPOEvZsIwYcCbehYkrT/ILOL2gepVkxnxeU/rwv/6jK31xcaNCbhci7i988wyPBUoIS5hdDPW5uKMD2oUDY3uRPbW+S0+n3d3bY6/zPVvjF1/TMMq+/AcxZcyCLBgAA</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=69dbcb7bc3a883100a7d76ec05013125"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Create Record">2de05916c31332002841b63b12d3aee1</action_type>
+        <action_type_parent display_value="Create Record">02f0b88cc3c632002841b63b12d3aeff</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Food Order Flow">ad4b873bc3a883100a7d76ec05013117</flow>
+        <generation_source/>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:15:55</sys_created_on>
+        <sys_id>a2dc833bc3a883100a7d76ec050131f4</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:42:19</sys_updated_on>
+        <ui_id>faa0f754-893d-4062-879d-05d1739b6173</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+VVwW7bMAz9FUNnI5Di1k1yGzB0p7XANvTStIIs0YkGWfIkOW1W9N9HyU7WdStQDAOGYbnxkSIfyRf6+oFoRVakZkBPl6yWFauqOaXzxQlr6qphc1UJgBNSEis6wMgoGgM8GyXZCTMk8J6zZbWsTykPnfCRU25d1K2WImpnA0YqHXoj9lfTg4tnbrnVRnmwZHV9U5JeeMwfwZPVwzNX3PfAjWjAYJZPiUtxMXJ5bR8/PH6hr1TlOea8SoRoSeA+glWA9VphApSkE1aJ6PyerKIfEPAg1KU1+2PEVtuICUmKvQ/6K2Zf0BTXArYmYfQdTT6Na4Tl1mkJl30a1ohkYpPTmaGzF2MTadDQisHEw6ARGQLmgz5RTiQmRu3Hrbv7cCh4rm3ubnIaJ4U5WiJGr5shQkj7AAMdJuKd6HttN7z3bqfzY+TSzTYGjVlr3B0WDXpjZ0Im4jOckJidI/42w1fC69TFe0yDjx9z9/zLkOqOfUyM+dg0BgTpdR/fYLodTOQey4OAFdDli4tnzfdFZ82GJ+L1IHWvsdJ6oLRSD+uDWNdktSbvMDiuSbke4zN2yirUeiVlzdh8fiYpW1SA8l8u5El7RuscnneUw8M+cFyCz3AytHplmsfbMDSfQU7UsgQL6WyrfQfqtoMQxAZG594NvmidUwU2BDgiVaAsizttTNFAocAg5lG1P/0Z/78B/Oa5gQ6nEqEYB1e+WnmHBOcajAq/kOLh3kwF+G4qMN0c9qduDqtp/v2dyzPy/McOz5NvwAsn6OYbHh8Zv0UHAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=a2dc833bc3a883100a7d76ec050131f4"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=ad4b873bc3a883100a7d76ec05013117"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=ad4b873bc3a883100a7d76ec05013117"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=ad4b873bc3a883100a7d76ec05013117"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=ad4b873bc3a883100a7d76ec05013117"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_ad4b873bc3a883100a7d76ec05013117</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:09:34</sys_created_on>
+        <sys_id>7d6b0f3bc3a883100a7d76ec050131a9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Table Name</sys_name>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_ad4b873bc3a883100a7d76ec05013117_table_name_en</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:09:34</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_ad4b873bc3a883100a7d76ec05013117</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:09:34</sys_created_on>
+        <sys_id>a16b0f3bc3a883100a7d76ec05013186</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Record</sys_name>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_ad4b873bc3a883100a7d76ec05013117_current_en</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:09:34</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_ad4b873bc3a883100a7d76ec05013117"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_ad4b873bc3a883100a7d76ec05013117"/>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,viewActivatedIn=diagramming</attributes>
+        <authored_on_release_version>28100</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description>Process food orders and assign kitchen staff</description>
+        <flow_priority>MEDIUM</flow_priority>
+        <internal_name>x_1939650_smart_0_food_order_flow</internal_name>
+        <label_cache>[]</label_cache>
+        <master>true</master>
+        <name>Food Order Flow</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="Food Order Flow">ad4b873bc3a883100a7d76ec05013117</parent_flow>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:42:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>21e25b3bc3e883100a7d76ec05013114</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:59:32</sys_updated_on>
+        <type>flow</type>
+        <version>2</version>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=21e25b3bc3e883100a7d76ec05013114"/>
+    <sys_variable_value action="delete_multiple" query="document_key=21e25b3bc3e883100a7d76ec05013114"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=21e25b3bc3e883100a7d76ec05013114"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=21e25b3bc3e883100a7d76ec05013114^sys_idNOT IN21e25b3bc3e883100a7d76ec05013115"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>21e25b3bc3e883100a7d76ec05013114</id>
+        <name>x_1939650_smart_0_food_order_flow</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:42:20</sys_created_on>
+        <sys_id>21e25b3bc3e883100a7d76ec05013115</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:42:20</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=21e25b3bc3e883100a7d76ec05013115"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=21e25b3bc3e883100a7d76ec05013114^sys_idNOT IN29e25b3bc3e883100a7d76ec05013133,2de25b3bc3e883100a7d76ec05013116"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Food Order Flow">21e25b3bc3e883100a7d76ec05013114</model>
+        <model_id>21e25b3bc3e883100a7d76ec05013114</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_21e25b3bc3e883100a7d76ec05013114</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:42:20</sys_created_on>
+        <sys_id>29e25b3bc3e883100a7d76ec05013133</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:59:32</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=29e25b3bc3e883100a7d76ec05013133"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Food Order Flow">21e25b3bc3e883100a7d76ec05013114</model>
+        <model_id>21e25b3bc3e883100a7d76ec05013114</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_21e25b3bc3e883100a7d76ec05013114</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:42:20</sys_created_on>
+        <sys_id>2de25b3bc3e883100a7d76ec05013116</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:59:32</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=2de25b3bc3e883100a7d76ec05013116"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=21e25b3bc3e883100a7d76ec05013114"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=21e25b3bc3e883100a7d76ec05013114"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=21e25b3bc3e883100a7d76ec05013114^sys_idNOT INede25b3bc3e883100a7d76ec0501316e"/>
+    <sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Food Order Flow">21e25b3bc3e883100a7d76ec05013114</flow>
+        <generation_source/>
+        <name>Created</name>
+        <published_version/>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:42:20</sys_created_on>
+        <sys_id>ede25b3bc3e883100a7d76ec0501316e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:42:20</sys_updated_on>
+        <trigger_definition display_value="Created">798916a0c31322002841b63b12d3ae7c</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/9VY2W7jNhT9FUFPLZACWrxEeZtmQQNMJ6jjaR+CVKBE0hZKk65IKfEM8u+91GLLWhw7VqbOSwDx0ryHh+eeS+bhu8lQQJh5YU5RwIh5ZkZckZgjNl0tCQwrPexztNCxBeIYKRGvzAsVJ+TMpLFYTMliyZCCyRQxCYMixiQ2L+wzM0UsIfcreYthJfh9tkyxplmE4fvZtz3XGw0tXy5QrHzLp0JgP1tHwjwcSciw+rOYfgNB464MhvOI4Zhw8+Lh8cxcohhyKJ3/ey0UaRAhDZHnECt0bddxLMs5H9jByA1sB7uIWBYsWCekBlq18LLZMXlWhGOC12Q0KIsJwnecrdYz5sB4Ts8CPcvoG6x+bul5lAD2kOSx9adfsJEPh3MRheRuqSLB85EcZx4ULFnwLzl+zSOhKGGq5BFGEgnrkaWGrEEUiOj9XDxNyoQ3Ec92VwSZCBFbfyGl4ihIFJGacBoxoN7PuZEiiTP0k+vLu8mV/9en6eVv1xN/cn0/ndxeTq+vzJdsX/6/iV4xR1hg8fPtvKwP/yYiTB9g4kuFVKJPXoZxtFSfQhWlpfhezjaCvhQcRxkvDVGHZUhui7rc/y5VW1anrsNKxlLbf1//0VRwPniYckcjhDBBHcoNaEW51Z23QFMtJFR3t0vDxcg+Ih5Y1v8k48Kb3qrihcCEXW2WMyE4m4GuI75MlGbrCXElfSV8hLFf4VFPBUyvyTrf28urCo4TDj/w1+fR1HFG25q/z5EEuA9QhyU32ZIQp5+LJScJNwQcHPwxwiQGapRROhu9XaBZwSi9J4yEqiIC+lVWv36PpIz4rIJ6nTTjoJFznQ7EZJRbynPLI5M/9lnETdLTGpm1Yj64km2b0oBQxxrrOrYtN6C2NbaGiGLXskKnUslNMJ0oVU0S71LRh9WzzMTI9pBeneICvFWthr1klG5rsCRBS6Swjct+oNk9QXM0tJr9uQf531qW+fDVtjp3ba3n7o9wiuAXeF8b3NMBKRNPYL1vcL8Ahf/MYpFwXLcjvaYRcWMzw/ip4O/nHp2QipjsBrA945Q8cEN7KVzEVz24n0vtwCMDYoHpueB3wdDzghA5lI5HY+LYNffbwGjF9iFc7xW1pW1y7XLAVuGkbXo7wPuOANjwwYMBHu+AhTBb/S+PfQyne5oT7gPU2GfayxqGN2MRJmWs32pvpE439X1sxdNzLxza43E4hlcLVDwdkADZA2eIvPHIPR/WKr4BZRdM1cLMD3nLyJXMgHS4wdc8dFrP8/eUrSRK6XZ0eJfmcI/NfoPyJJVOqY/FyExFxMYXwX+53cwz7gk0wOxB21e73geFPljjfWEEQs0b9wVI/SuMb6XW98wOVk7uSVUTSbq916OfVGRwPvSo224x1GuzmA2Ybpgnf73Ys0LSzlpru2fsK/i0tW46LwZvkHBNJtUbw44rTV+k2L2T4rwfKe7R16iyFjvfkW8B+4FaWHavOKaP6ZzEF7Rq3lfCgIABSYyIGsV/Egk2gpWh5gQoZXBfhoSGzn6sa1e7SBPKWsE/Fkh+A290Mxg2igvU6TWqmhT6fQETPEbDodtxH/bqL+A2QK/gPfm2dXBVpG1FtrN3HbZufc3W7lWR7LYi9uxLve66vTkdt+vW9vTaro9vPLve7y0oTrSlPP4HLurj/E0fAAA=</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>record_create</trigger_type>
+        <updation_source/>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=21e25b3bc3e883100a7d76ec05013114^sys_idNOT IN25e25b3bc3e883100a7d76ec0501316b,65e25b3bc3e883100a7d76ec0501316c"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Create Record">2de05916c31332002841b63b12d3aee1</action_type>
+        <action_type_parent display_value="Create Record">02f0b88cc3c632002841b63b12d3aeff</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>2de05916c31332002841b63b12d3aee1</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Food Order Flow">21e25b3bc3e883100a7d76ec05013114</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:42:20</sys_created_on>
+        <sys_id>25e25b3bc3e883100a7d76ec0501316b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:42:20</sys_updated_on>
+        <ui_id>ca203779-dc97-47c5-8bad-901bfd7488fd</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/9VUW2vbMBT+K0bPbpDjxjR+Gw2FwdbCWvrSJebEOm7E5Mskua0X+t93ZClp6Bq2wR5Wvxid6/ed292WScFyliXIZ/MkK9MkTaecT89Ok3WWrpOpSAHxlMWsgRrJ0sJaYTE+YvYAqnfCpyKZp/NsxgtTg7YF/S1UVWHBfDNkJ6TpFAy3wfzaKaOboCw3UgmNDcvvljHrQFNsi5rl21eqP0WqYI2KTG8c1CPI7dC9Kft06BtdekWrhcPDY4ZPFhuBBKQCZTBmNTQCbKsHllvdk0AjiKtGDXuLjWwsBWTO9snIH5T2jDu7ColZiV63fxahVl5cLcDCNUUuba+DablpZYnG10RgBb2y54cyb3DVWdk23mWkGbxb1dfNpS8J2wfYtYYkvSEQ2DmeDnmgUV1v2scvO5QXshlLEpSqLUHtX2CtluveOjxbhgprClTU0HWyuS863T7I0Zmw1JN7RY9JpdpHSmrkfTOB0gGfUFlhckHyxSi+BS0di88UhpyfY2YGc67AmBcuVMTie++QeGaBQ+HL4FxKLTv7gRI8YID7HO9WQCCfHx2sZP0ySOPUm4Pxd2NeuOn52nOeCoGK4uthNcqJ1ZiVOHn1wqujqm1FNI5WHt19tFib5arTstXSDt6yRiH7ekW7ZHvjRY4SVXElemoS2JBxyqfZCZ+d8CyapvlslnP+69b9pyj/cv1/36Xd+l9IVMK80bbd7mNN5bFY+Da+2v+gjG6DMtyA5F/dgCTj4/eOLoEn9+4PwcHNP3ISlj8B43kYNRcHAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=25e25b3bc3e883100a7d76ec0501316b"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Create Record">2de05916c31332002841b63b12d3aee1</action_type>
+        <action_type_parent display_value="Create Record">02f0b88cc3c632002841b63b12d3aeff</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>2de05916c31332002841b63b12d3aee1</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Food Order Flow">21e25b3bc3e883100a7d76ec05013114</flow>
+        <generation_source/>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:42:20</sys_created_on>
+        <sys_id>65e25b3bc3e883100a7d76ec0501316c</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:42:20</sys_updated_on>
+        <ui_id>faa0f754-893d-4062-879d-05d1739b6173</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+VVUU/bMBD+K5GfoypuILR9m0DsZQNpTLzQETn2pfXk2JntAF3Ff9/ZTkvFQGPSXtD65rvvzt/35Xy92RIpyIJUFIrjOa14SctyWhTT2RFtqrKhU1EygCOSE806QKRnjYI6HnJyx9QQgg81nZfz6rioXcesr4taGy9byZmXRjtECul6xTbXY8HFszRfSyUsaLK4+ZaTnlns78GSxfZZ6q1sFWtAIfRroPsKe7/pX4x9OqzNLlLCWBH4FDmBBw9aABJpmXKQk45pwbyxG7LwdsCABSYutdrsEWupPTYkAfvg5E+8dlYEXAuojEPK7Y/16FYKt2fMsyvszP1gRyhfG8nBJU8EtGxQ/vQwlgCXfTA4lUSZY7VRQ6cvkiVk32D3cTAyOCQBfdAZmI8y2qu1uf+yY3kudbRkTCrDmdqfmPdWNoMPfLYEFHTYqO5Y30u9qntr7mQsRi7dZKXwMGmVucdLnVzpCeOB+ARtZZNzjJ/F8DWzMqj4jG2w+DEnbuNOFXPuSQuaWP8YApOkbNRQJxtCCbey9x/wgjsY6T7mu2cgoJi/Oli0eRqkOPnu4AlY4LKXeNNyKIpSbJe7kV+SxZJ8RLBfknyZ8DF2TEt8MSXnFaXT6Qkv6KwEfETzGT9qT4oqwuNXi3CUWuNnsTEcDlK8sc3jrRua78BHanGSM250K20H4rYD59gKUnJjBpu1xogMBQFaJDKc7uxeKpU1kAlQGLM4/L896f/PgL9cWn+erd3SOpeghHth2HYbCzo01kOdhu/Z1hqT2fWYHDcX/Vebi1ZF/L2j/ZXEvfv1dfBP9coi+/YL8eXHwdEHAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=65e25b3bc3e883100a7d76ec0501316c"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=21e25b3bc3e883100a7d76ec05013114"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=21e25b3bc3e883100a7d76ec05013114"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=21e25b3bc3e883100a7d76ec05013114"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=21e25b3bc3e883100a7d76ec05013114"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_21e25b3bc3e883100a7d76ec05013114</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:42:20</sys_created_on>
+        <sys_id>69e25b3bc3e883100a7d76ec0501312f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Record</sys_name>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:42:20</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_21e25b3bc3e883100a7d76ec05013114</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:42:20</sys_created_on>
+        <sys_id>a5e25b3bc3e883100a7d76ec05013153</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Table Name</sys_name>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:42:20</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_21e25b3bc3e883100a7d76ec05013114"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_21e25b3bc3e883100a7d76ec05013114"/>
+    <sys_hub_flow action="UPDATE">
+        <sys_id>ad4b873bc3a883100a7d76ec05013117</sys_id>
+        <latest_snapshot>21e25b3bc3e883100a7d76ec05013114</latest_snapshot>
+        <compiler_build/>
+        <version_record/>
+    </sys_hub_flow>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=ad4b873bc3a883100a7d76ec05013117^sys_idNOT IN35e25b3bc3e883100a7d76ec050131e5"/>
+    <sys_flow_trigger_plan action="INSERT_OR_UPDATE">
+        <binding_strategy>com.snc.process_flow.engine.binding.OncePerRecord</binding_strategy>
+        <plan/>
+        <plan_id>ad4b873bc3a883100a7d76ec05013117</plan_id>
+        <snapshot>21e25b3bc3e883100a7d76ec05013114</snapshot>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 16:42:21</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>35e25b3bc3e883100a7d76ec050131e5</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 16:59:32</sys_updated_on>
+        <trigger display_value="">add61b73c32c83100a7d76ec0501310c</trigger>
+    </sys_flow_trigger_plan>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=ad4b873bc3a883100a7d76ec05013117"/>
+</record_update>

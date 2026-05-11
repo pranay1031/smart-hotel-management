@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="eb4d7c7bc32843100a7d76ec05013114" label="SLA Metrics" max_length="40" name="x_1939650_smart_0_sla_metrics" type="collection">
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Incident" max_length="32" name="u_incident" reference="x_1939650_smart_0_guest_incidents" type="reference"/>
+        <element label="Expected Resolution Time" max_length="40" name="u_expected_resolution" type="glide_date_time"/>
+        <element label="Created Time" max_length="40" name="created_time" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Escalation Level" mandatory="true" max_length="40" name="u_escalation_level" type="integer"/>
+        <element label="Escalation Level" max_length="40" name="escalation_level" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="SLA Status" max_length="40" name="u_sla_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Resolved" sequence="2" value="resolved"/>
+                <element inactive_on_update="false" label="Breached" sequence="1" value="breached"/>
+                <element inactive_on_update="false" label="On track" sequence="0" value="on_track"/>
+            </choice>
+        </element>
+        <element label="Assigned Time" max_length="40" name="u_assigned_time" type="glide_date_time"/>
+        <element label="Metric ID" max_length="50" name="u_metric_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Breach Time" max_length="40" name="u_breach_minutes" type="integer"/>
+        <element label="Actual Resolution Time" max_length="40" name="u_actual_resolution_time" type="glide_date_time"/>
+        <index name="index">
+            <element name="u_incident"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="94143877c3e443100a7d76ec0501313a" label="Food Orders" max_length="40" name="x_1939650_smart_0_food_orders" type="collection">
+        <element label="Delivery Time" max_length="255" name="u_delivery_time" type="glide_date_time"/>
+        <element label="Special Instructions" max_length="1000" name="u_special_instructions" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" display="true" label="Room Number" max_length="32" name="u_room_number" reference="x_1939650_smart_0_room" type="reference"/>
+        <element label="room number" max_length="40" name="room_number" type="string"/>
+        <element label="Created Date" max_length="255" name="u_created_date" type="glide_date_time"/>
+        <element label="Guest Name" max_length="100" name="u_guest_name" type="string"/>
+        <element label="Order ID" mandatory="true" max_length="50" name="u_order_i0" type="string"/>
+        <element label="Assigned To" max_length="32" name="u_assigned_to" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Status" max_length="40" name="u_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Ready" sequence="2" value="ready"/>
+                <element inactive_on_update="false" label="Preparing" sequence="1" value="preparing"/>
+                <element inactive_on_update="false" label="Delivered" sequence="3" value="delivered"/>
+                <element inactive_on_update="false" label="Pending" sequence="0" value="pending"/>
+            </choice>
+        </element>
+        <element label="Menu Items" max_length="2000" name="u_menu_items" type="string"/>
+        <element label="Order Total" max_length="15" name="u_order_total" type="decimal"/>
+        <index name="index">
+            <element name="u_assigned_to"/>
+        </index>
+        <index name="index2">
+            <element name="u_room_number"/>
+        </index>
+    </element>
+</database>

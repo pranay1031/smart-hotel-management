@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="9971c1f3c36843100a7d76ec050131bf" label="Chat Logs" max_length="40" name="x_1939650_smart_0_chat_logs" type="collection">
+        <element choice="1" default="other" label="Detected Intent" max_length="40" name="u_intent" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="other" sequence="4" value="other"/>
+                <element inactive_on_update="false" label="complaint" sequence="2" value="complaint"/>
+                <element inactive_on_update="false" label="faq" sequence="3" value="faq"/>
+                <element inactive_on_update="false" label="booking" sequence="0" value="booking"/>
+                <element inactive_on_update="false" label="food" sequence="1" value="food"/>
+            </choice>
+        </element>
+        <element label="User Message" max_length="2000" name="u_message" type="string"/>
+        <element label="AI Response" max_length="2000" name="u_response" type="string"/>
+        <element display="true" label="User Name" max_length="100" name="user_name" type="string"/>
+        <element label="Chat ID" max_length="50" name="u_chat_id" type="string"/>
+        <element label="Created Date" max_length="255" name="u_created_date" type="glide_date_time"/>
+        <element label="Session ID" max_length="100" name="u_session_id" type="string"/>
+        <element label="User Email" max_length="40" name="u_user_email" type="string"/>
+        <element label="Created Date" max_length="40" name="created_date" type="string"/>
+    </element>
+</database>

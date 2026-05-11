@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 06:16:11</sys_created_on>
+        <sys_id>599389f7c36843100a7d76ec050131e3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1939650_smart_0_food_orders.x_1939650_smart_0.guest</sys_name>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_security_acl display_value="x_1939650_smart_0_food_orders">9d9389f7c36843100a7d76ec0501312f</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_599389f7c36843100a7d76ec050131e3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 06:16:11</sys_updated_on>
+        <sys_user_role display_value="x_1939650_smart_0.guest" name="x_1939650_smart_0.guest">b6484033c3a043100a7d76ec05013149</sys_user_role>
+    </sys_security_acl_role>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</application>
+        <file_path/>
+        <instance_id>9bad1c5adb76f1d002d917291396199f</instance_id>
+        <instance_name>dev230405</instance_name>
+        <name>sys_security_acl_role_599389f7c36843100a7d76ec050131e3</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 06:16:11</sys_created_on>
+        <sys_id>599389f7c36843100a7d76ec050131e3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1939650_smart_0_food_orders.x_1939650_smart_0.guest</sys_name>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_security_acl display_value="x_1939650_smart_0_food_orders">9d9389f7c36843100a7d76ec0501312f</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_599389f7c36843100a7d76ec050131e3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 06:16:11</sys_updated_on>
+        <sys_user_role display_value="x_1939650_smart_0.guest" name="x_1939650_smart_0.guest">b6484033c3a043100a7d76ec05013149</sys_user_role>
+    </sys_security_acl_role>
+</record_update>]]></payload>
+        <payload_hash>-1305709855</payload_hash>
+        <record_name>x_1939650_smart_0_food_orders.x_1939650_smart_0.guest</record_name>
+        <reverted_from/>
+        <source>7148fcc1c3700310dccf78cc0501311c</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-10 02:39:43</sys_created_on>
+        <sys_id>ad68b445c3700310dccf78cc05013149</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19e0fc13ec20000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-10 02:39:43</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>6d68b445c970031044dfc5beb2a04249</update_guid>
+        <update_guid_history>6d68b445c970031044dfc5beb2a04249:-1305709855</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x_1939650_smart_0_food_orders.x_1939650_smart_0.guest">a9361901c3740310dccf78cc050131e2</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-10 04:49:58</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>0fe68336f7684184816a43e8b1b8c3d1</sys_id>
+        <sys_metadata>599389f7c36843100a7d76ec050131e3</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1939650_smart_0_food_orders.x_1939650_smart_0.guest</sys_name>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_scope_delete display_value="">bbab13657d6f405b9f5419684e3d99c9</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_599389f7c36843100a7d76ec050131e3</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_599389f7c36843100a7d76ec050131e3">ad68b445c3700310dccf78cc05013149</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-10 04:49:58</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

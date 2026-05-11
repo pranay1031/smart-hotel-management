@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_1939650_smart_0_bookings</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Generate unique booking IDs</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous) {
+    if (!current.booking_id || current.booking_id == '') {
+        current.booking_id = 'BK-' + new Date().getFullYear() + '-' +
+            Math.floor(Math.random() * 90000 + 10000);
+    }
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-10 16:55:22</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>13eb3389c37803100a7d76ec050131e1</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Generate unique booking IDs</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name>sys_script_13eb3389c37803100a7d76ec050131e1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-10 17:09:46</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=13eb3389c37803100a7d76ec050131e1"/>
+</record_update>

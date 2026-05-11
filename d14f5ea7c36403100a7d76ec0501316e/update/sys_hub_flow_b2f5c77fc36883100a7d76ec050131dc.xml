@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>false</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=integrated,labelCacheCleanUpExecuted=true,viewActivatedIn=diagramming</attributes>
+        <authored_on_release_version>28100</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <compiler_build/>
+        <copied_from/>
+        <copied_from_name/>
+        <description>Booking confirmation and notification flow</description>
+        <display_name_after_preview/>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source/>
+        <internal_name>x_1939650_smart_0_booking_flow</internal_name>
+        <label_cache>[]</label_cache>
+        <latest_snapshot/>
+        <master_snapshot/>
+        <master_snapshot_digest/>
+        <name>Booking Flow</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>draft</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:45:53</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b2f5c77fc36883100a7d76ec050131dc</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Booking Flow</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name>sys_hub_flow_b2f5c77fc36883100a7d76ec050131dc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 17:11:11</sys_updated_on>
+        <type>flow</type>
+        <updation_source/>
+        <version>2</version>
+        <version_record>fd7997f7c32c83100a7d76ec050131b6</version_record>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=b2f5c77fc36883100a7d76ec050131dc"/>
+    <sys_variable_value action="delete_multiple" query="document_key=b2f5c77fc36883100a7d76ec050131dc"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=b2f5c77fc36883100a7d76ec050131dc"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=b2f5c77fc36883100a7d76ec050131dc^sys_idNOT IN32f5c77fc36883100a7d76ec050131dd"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>b2f5c77fc36883100a7d76ec050131dc</id>
+        <name>x_1939650_smart_0_booking_flow</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:45:53</sys_created_on>
+        <sys_id>32f5c77fc36883100a7d76ec050131dd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:45:53</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=32f5c77fc36883100a7d76ec050131dd"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=b2f5c77fc36883100a7d76ec050131dc^sys_idNOT IN5f060f7fc36883100a7d76ec05013130,93060f7fc36883100a7d76ec05013123"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name,uiTypeLabel=Table Name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Booking Flow">b2f5c77fc36883100a7d76ec050131dc</model>
+        <model_id>b2f5c77fc36883100a7d76ec050131dc</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_b2f5c77fc36883100a7d76ec050131dc</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:46:12</sys_created_on>
+        <sys_id>5f060f7fc36883100a7d76ec05013130</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 17:08:50</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=5f060f7fc36883100a7d76ec05013130"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id,uiTypeLabel=Document ID</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Booking Flow">b2f5c77fc36883100a7d76ec050131dc</model>
+        <model_id>b2f5c77fc36883100a7d76ec050131dc</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_b2f5c77fc36883100a7d76ec050131dc</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:46:12</sys_created_on>
+        <sys_id>93060f7fc36883100a7d76ec05013123</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 17:08:50</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=93060f7fc36883100a7d76ec05013123"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=b2f5c77fc36883100a7d76ec050131dc"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=b2f5c77fc36883100a7d76ec050131dc"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=b2f5c77fc36883100a7d76ec050131dc^sys_idNOT INb606cb7fc36883100a7d76ec05013184"/>
+    <sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Booking Flow">b2f5c77fc36883100a7d76ec050131dc</flow>
+        <generation_source/>
+        <name>Created</name>
+        <published_version/>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:46:10</sys_created_on>
+        <sys_id>b606cb7fc36883100a7d76ec05013184</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 17:08:50</sys_updated_on>
+        <trigger_definition display_value="Created">798916a0c31322002841b63b12d3ae7c</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/9VY227jNhD9FUFPLeACuthxnLddJ4sGSBPA8bYPaSBQImkTS4uuSClxF/n3DnWxZUl2fJFT5ykQyXDOHJ45Q/rpp8mRT7h5ZY6Rz4nZMVmoSBQiPl7MCQwrPeyFaKbnZijESIloYV6pKCYdk0ZiNiazOUcKFlPEJQyKCJPIvLI7ZoJ4TB4X8hbDTvD/6Tb5nmY+Dd+vnj1wBxc9y5MzFCnP8nwhfrBwImERZhK2X/yZr/26mgmmjOOIhObV03PHnKMIdlc68s/KlIJUvLU8jfssIaaBBTRAA4dYgWu7jmNZzmXX9i9c33awi4hlwboqSZVEVANXKxbIqyIhJnhJUI3GiCD8EPLFcsUUTiGjbIZeJfsXdr+09DpKIKuAZHPLTy8nKRsOpoIF5GGumAizkQxnNil4PAvvM/yaXkJRzFVBL4zEEvYjcw1Zg8gR0cepeBkVAb+xMM0un+QiQHz5hZSKmB8rIvVRUMbhULyMGyniKEU/uhk+jK69v76Mh7/fjLzRzeN4dDsc31ybb2le3j+x3jFDmGPxsnTelpr4xgjXB5irxYPT7JgyiNhcfQkUSwpJvnVWMh+KELOUmZrUg2JKrku9YGCb1i1ro9qDUsRC8VIhFcu/Y8tyMcxTFs0Irov9YJEPy6mkIr+4QAgTtEHkPi2JvExRQw6qga0yDdvkno/soveuZf1Pis+t7VDBv6BQSU8JD2HslVgCf4CNdYoCE369igfjbDKBGmHhPFby3QrIcquXwfvij+IQtvCWJ1QvgZTIJaN3TAK+Jyjigq08BXqX7ziKQ0OERhBHQJMy4KSNYncjxanVQW9naJJzTR8JJ4EqyYN+l+WvP5iUUMwl9Mvg6Ug9Ol+UIRSefEzQ5zbrv056UsmntaovTi+teNum1CfUsfq63m3L9alt9a0eoti1rMApVXwd4kbsqiKUk1T+fnUvU4nyHTRRJT4Hb5VrZCdFJ+vlUJCghZPby7AdaHZL0BwNrWKT7l4+uRRrNny9rtltqbV8oUA4QfAfuMhxlwvDDr5IuXgBBz7AE6mIyCQScYir3qT3NBj8XVvRkhv6KPixPexqhfFLfmy/npszrmgvhIvCxck80aW2PyBdYoEVuuCCfm8w8APkUNq/6BPHrnjiClwj4k/hhe+IIWlS0yZfbNRz0lQGezjiEQBr7rg3wON9MZdroytmc5/D/16mJPQAauRx7XA1G5xwhkkx164H1EInq6pvywfu8qR0dHo5CHp2vx/04R0ELkC7xEd21+mhQf/CvexVXKAGbxt01cDWh7yO5EKmQDY4xPds6rx+GzillCVRSjeu/ft5uh5lAUqdVR+JkZqMiAxNp3G7Wmg8EuiT6fu4tf4u1LTW2SH0VxhfC63vgfci/K0BTpuvrxAeArtQswHKuV08KiJJ1lk/0ZOMdC97A+o2Gw8dNBnPCuJm8Gd/EdlRIMlGqTXdSHYtyKSxrjdeIQ4osYp4yneLLZeftkixWyfFOR0p7tEXrqJCN75DDwH7iRpbets4vLuJkHiCNro3o0b+UyTBhr8w1JQAmRzu1BDK0HHb7CfZ5bjW3mDYyO8x7XUuTXM17WthwIQRfUjip2lfFSl8xAua4D7q9dwNd+dB9QXdBPOdLM6+me0tnKRJh1s72n77Vvds7GmlulrXyY7dqtWsm1vWcVk3Nq33sj6+HW17/zegONNG8/wfntph9gogAAA=</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>record_create</trigger_type>
+        <updation_source/>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=b2f5c77fc36883100a7d76ec050131dc^sys_idNOT IN84d607ffc36883100a7d76ec050131bc"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot/>
+        <display_text/>
+        <flow display_value="Booking Flow">b2f5c77fc36883100a7d76ec050131dc</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:49:32</sys_created_on>
+        <sys_id>84d607ffc36883100a7d76ec050131bc</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 17:08:50</sys_updated_on>
+        <ui_id>ac80c593-06db-47e8-a3b8-47a953bc13dc</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1SwWrjMBD9laCzMXachja3hRDYw7bQXXopxYylcSKQJa8sp82W/vuOZDlJy7bk0LAsrE+e0cyb92be/TOTgi3YDEWWX+VzXuRFMc2y6eUsr+ZFlU9FAYg5S5iGBqnSIjdWULwF1fsE/QrZtQp2d4cM30glLGq2uH9IWAuWmh1atnh+8+R2LZYKKlTUuDS8b1C7ydclYZxKbOy+HZm9ZepnUCwieil9kp48nzxLGD451AJpXA2qw4Q1oAU4Y3ds4WxPCYsgbrTa7Ss2UrtBaQNPnfxF+LPM19VI0njcwj4s44bG5RjJ8aZ10ugh46BS4+aM6ht9PUjwu8UaeuWOdtt3hIetp+xJDAzr7xvzeDvOW0kd1EW2ynBQ+wics7LqHXb+HKgwLKWBtpV6XbbWbGVoJipNulYUpLUyjzSzk2udAve8U1oQpCvKL0P6Dqz0Ir4RDDW/BPHlz97PHWREwmXQHASX4VBU2nErW/eFgLcYab4k0ZnZ9EMD4OHewZDdeZz5AxvCcTgZkJKTuY0AK4lKdH8gG83p4oByGwfs/flpBs3nWfj+2/QMNq0uPrICvzpc/gjzPFb1+JPrAf9Ubq+a3+E6OvU4F1168WkmvfxL9oyM/jF/vufKh9+MvPhQ2AcAAA==</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=84d607ffc36883100a7d76ec050131bc"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=b2f5c77fc36883100a7d76ec050131dc"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=b2f5c77fc36883100a7d76ec050131dc"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=b2f5c77fc36883100a7d76ec050131dc"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=b2f5c77fc36883100a7d76ec050131dc"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_b2f5c77fc36883100a7d76ec050131dc</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:46:12</sys_created_on>
+        <sys_id>9f060f7fc36883100a7d76ec0501312c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Record</sys_name>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_b2f5c77fc36883100a7d76ec050131dc_current_en</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:46:12</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_b2f5c77fc36883100a7d76ec050131dc</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 15:46:12</sys_created_on>
+        <sys_id>db060f7fc36883100a7d76ec05013137</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Table Name</sys_name>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name>sys_documentation_var__m_sys_hub_flow_input_b2f5c77fc36883100a7d76ec050131dc_table_name_en</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 15:46:12</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_b2f5c77fc36883100a7d76ec050131dc"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_b2f5c77fc36883100a7d76ec050131dc"/>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=b2f5c77fc36883100a7d76ec050131dc"/>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=b2f5c77fc36883100a7d76ec050131dc"/>
+</record_update>

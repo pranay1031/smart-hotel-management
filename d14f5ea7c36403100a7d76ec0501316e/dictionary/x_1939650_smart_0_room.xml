@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="9b03a2afc36403100a7d76ec050131ad" label="Room" max_length="40" name="x_1939650_smart_0_room" type="collection">
+        <element label="room number" max_length="40" name="u_integer_1" type="integer"/>
+        <element label="room number" max_length="40" name="room_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="floor" max_length="255" name="floor" type="integer"/>
+        <element label="image url" max_length="40" name="image_url" type="string"/>
+        <element label="room type" max_length="40" name="room_type" type="string"/>
+        <element label="status" max_length="40" name="status" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="capacity" max_length="255" name="capacity" type="integer"/>
+        <element label="description" max_length="40" name="description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" display="true" label="total bookings" max_length="255" name="total_bookings" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="price per night" max_length="38" name="price_per_night" type="decimal"/>
+        <element label="amenities" max_length="40" name="amenities" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="rating" max_length="38" name="rating" type="decimal"/>
+    </element>
+</database>

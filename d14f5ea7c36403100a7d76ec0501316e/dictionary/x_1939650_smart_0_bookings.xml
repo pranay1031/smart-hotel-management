@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="6042f873c3e443100a7d76ec0501312b" label="Bookings" max_length="40" name="x_1939650_smart_0_bookings" type="collection">
+        <element label="Booking ID" max_length="40" name="booking_id" type="string"/>
+        <element label="Guest Email" mandatory="true" max_length="40" name="guest_email" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Room" max_length="32" name="room" reference="x_1939650_smart_0_room" type="reference"/>
+        <element label="Check-In Date" mandatory="true" max_length="255" name="check_in_date" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="pending" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Completed" sequence="3" value="completed"/>
+                <element inactive_on_update="false" label="Cancelled" sequence="2" value="cancelled"/>
+                <element inactive_on_update="false" label="Pending" sequence="0" value="pending"/>
+                <element inactive_on_update="false" label="Confirmed" sequence="1" value="confirmed"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Total Price" max_length="38" name="total_price" type="decimal"/>
+        <element label="Special Requests" max_length="40" name="special_requests" type="string"/>
+        <element label="Created Date" mandatory="true" max_length="255" name="created_date" type="glide_date_time"/>
+        <element label="Guest Phone" max_length="40" name="guest_phone" type="string"/>
+        <element label="Guest Name" mandatory="true" max_length="40" name="guest_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Confirmation Email Sent" max_length="255" name="confirmation_email_sent" type="boolean"/>
+        <element label="Check-Out Date" mandatory="true" max_length="40" name="check_out_date" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="1" label="Number of Guests" max_length="255" name="number_of_guests" type="integer"/>
+        <index name="index">
+            <element name="room"/>
+        </index>
+    </element>
+</database>

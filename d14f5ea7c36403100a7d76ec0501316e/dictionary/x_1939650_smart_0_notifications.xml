@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="d329f033c32843100a7d76ec0501311e" label="Notifications" max_length="40" name="x_1939650_smart_0_notifications" type="collection">
+        <element label="Message" max_length="40" name="message" type="string"/>
+        <element label="Created Date" max_length="255" name="created_date" type="glide_date_time"/>
+        <element label="Recipient" max_length="32" name="recipient" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="In-App" label="Notification Type" max_length="40" name="notification_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="SMS" sequence="1" value="sms"/>
+                <element inactive_on_update="false" label="Email" sequence="0" value="email"/>
+                <element inactive_on_update="false" label="Push" sequence="3" value="push"/>
+                <element inactive_on_update="false" label="In-App" sequence="2" value="in_app"/>
+            </choice>
+        </element>
+        <element label="Subject" max_length="40" name="subject" type="string"/>
+        <element label="Sent Date" max_length="255" name="sent_date" type="glide_date_time"/>
+        <element label="Related To" max_length="32" name="related_to" reference="x_1939650_smart_0_bookings" type="reference"/>
+        <element choice="1" default="pending" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Pending" sequence="0" value="pending"/>
+                <element inactive_on_update="false" label="Delivered" sequence="3" value="delivered"/>
+                <element inactive_on_update="false" label="Failed" sequence="2" value="failed"/>
+                <element inactive_on_update="false" label="Sent" sequence="1" value="sent"/>
+            </choice>
+        </element>
+        <element label="Notification ID" max_length="40" name="notification_id" type="string"/>
+        <index name="index">
+            <element name="recipient"/>
+        </index>
+        <index name="index2">
+            <element name="related_to"/>
+        </index>
+    </element>
+</database>

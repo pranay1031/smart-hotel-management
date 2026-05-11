@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="eb6b7077c32843100a7d76ec050131f0" label="Guest Incidents" max_length="40" name="x_1939650_smart_0_guest_incidents" type="collection">
+        <element label="Incident ID" mandatory="true" max_length="50" name="incident_id" type="string"/>
+        <element choice="3" default="medium" label="Priority" mandatory="true" max_length="40" name="priority" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+                <element inactive_on_update="false" label="Urgent" sequence="3" value="urgent"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+            </choice>
+        </element>
+        <element label="Created Date" max_length="40" name="created_date" type="glide_date_time"/>
+        <element label="Satisfaction Rating (1-5)" max_length="40" name="satisfaction_rating_1_5" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" mandatory="true" max_length="40" name="number" type="string"/>
+        <element label="Resolved Date" max_length="40" name="resolved_date" type="glide_date_time"/>
+        <element label="Guest Name" mandatory="true" max_length="100" name="guest_name" type="string"/>
+        <element label="Assigned To (Staff)" max_length="32" name="assigned_to_staff" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Room Number" max_length="32" name="room_number" reference="x_1939650_smart_0_room" type="reference"/>
+        <element choice="3" default="other" label="Complaint Type" mandatory="true" max_length="40" name="complaint_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Cleaning" sequence="2" value="cleaning"/>
+                <element inactive_on_update="false" label="Temperature" sequence="5" value="temperature"/>
+                <element inactive_on_update="false" label="AC" sequence="0" value="ac"/>
+                <element inactive_on_update="false" label="Noise" sequence="3" value="noise"/>
+                <element inactive_on_update="false" label="Other" sequence="6" value="other"/>
+                <element inactive_on_update="false" label="Water" sequence="1" value="water"/>
+                <element inactive_on_update="false" label="WiFi" sequence="4" value="wifi"/>
+            </choice>
+        </element>
+        <element label="Description" mandatory="true" max_length="2000" name="description" type="string"/>
+        <element choice="3" default="new" display="true" label="Status" mandatory="true" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="In Progress" sequence="2" value="in_progress"/>
+                <element inactive_on_update="false" label="Closed" sequence="4" value="closed"/>
+                <element inactive_on_update="false" label="New" sequence="0" value="new"/>
+                <element inactive_on_update="false" label="Resolved" sequence="3" value="resolved"/>
+                <element inactive_on_update="false" label="Assigned" sequence="1" value="assigned"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="assigned_to_staff"/>
+        </index>
+    </element>
+</database>

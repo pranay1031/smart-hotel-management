@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role">
+    <sys_user_role action="DELETE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description>Default user role</description>
+        <elevated_privilege>false</elevated_privilege>
+        <federated_id/>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_1939650_smart_0.user</name>
+        <scoped_admin>false</scoped_admin>
+        <suffix>user</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-05 18:18:18</sys_created_on>
+        <sys_id>ad4f5ea7c36403100a7d76ec050131cd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1939650_smart_0.user</sys_name>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_update_name>sys_user_role_ad4f5ea7c36403100a7d76ec050131cd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-05 18:18:18</sys_updated_on>
+    </sys_user_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</application>
+        <file_path/>
+        <instance_id>9e5f5d94db82f554ae4c9027c596193d</instance_id>
+        <instance_name>dev189725</instance_name>
+        <name>sys_user_role_ad4f5ea7c36403100a7d76ec050131cd</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role"><sys_user_role action="INSERT_OR_UPDATE"><assignable_by/><can_delegate>true</can_delegate><description>Default user role</description><elevated_privilege>false</elevated_privilege><federated_id/><grantable>true</grantable><includes_roles/><name>x_1939650_smart_0.user</name><scoped_admin>false</scoped_admin><suffix>user</suffix><sys_class_name>sys_user_role</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-05-05 18:18:18</sys_created_on><sys_id>ad4f5ea7c36403100a7d76ec050131cd</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_1939650_smart_0.user</sys_name><sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package><sys_policy/><sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope><sys_update_name>sys_user_role_ad4f5ea7c36403100a7d76ec050131cd</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-05-05 18:18:18</sys_updated_on></sys_user_role></record_update>]]></payload>
+        <payload_hash>-1831328918</payload_hash>
+        <record_name>x_1939650_smart_0.user</record_name>
+        <reverted_from/>
+        <source>dd4f5ea7c36403100a7d76ec050131a7</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-05 18:18:18</sys_created_on>
+        <sys_id>ed4f5ea7c36403100a7d76ec050131d2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19df95cbeda0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-05 18:18:18</sys_updated_on>
+        <type>Role</type>
+        <update_guid>ad4f5ea7a564031015d6ce0ea53b48d1</update_guid>
+        <update_guid_history>ad4f5ea7a564031015d6ce0ea53b48d1:-1831328918</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x_1939650_smart_0.user">06b78cbfc36043100a7d76ec050131ea</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-05-06 01:54:38</sys_created_on>
+        <sys_db_object display_value="" name="sys_user_role">sys_user_role</sys_db_object>
+        <sys_id>07795eea638642ad91b792c0037ba1d9</sys_id>
+        <sys_metadata>ad4f5ea7c36403100a7d76ec050131cd</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1939650_smart_0.user</sys_name>
+        <sys_package display_value="smart hotel" source="x_1939650_smart_0">d14f5ea7c36403100a7d76ec0501316e</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="smart hotel">d14f5ea7c36403100a7d76ec0501316e</sys_scope>
+        <sys_scope_delete display_value="">bbab13657d6f405b9f5419684e3d99c9</sys_scope_delete>
+        <sys_update_name>sys_user_role_ad4f5ea7c36403100a7d76ec050131cd</sys_update_name>
+        <sys_update_version display_value="sys_user_role_ad4f5ea7c36403100a7d76ec050131cd">ed4f5ea7c36403100a7d76ec050131d2</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-05-06 01:54:38</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
