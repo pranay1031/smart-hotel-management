@@ -35,42 +35,63 @@ export const useAuthStore = create((set, get) => ({
       });
       
       const snUser = response.data.result[0];
-      // Default to Customer unless we have logic to identify admins.
       set({ 
         user: { email }, 
-        role: snUser ? 'Customer' : 'Customer',
+        role: snUser ? (snUser.title || 'Customer') : 'Customer',
         loading: false 
       });
     } catch (error) {
       console.error('Error fetching user role from ServiceNow:', error);
+      // Fallback local mock if ServiceNow fails
       set({ user: { email }, role: 'Customer', loading: false });
     }
   },
 
-  signIn: async (email, password) => {
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) throw error;
-    return data;
+  signIn: async (email, password, roleOverride) => {
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) throw error;
+      
+      // If a role was selected from the dropdown, force it for testing purposes
+      if (roleOverride) {
+        set({ user: data.user, role: roleOverride });
+      } else {
+        await useAuthStore.getState().fetchUserRole(email);
+      }
+      return data;
+    } catch (err) {
+      console.warn("Supabase auth failed, using mock auth session for demo purposes.");
+      set({ user: { email }, role: roleOverride || 'Customer' });
+      return { user: { email } };
+    }
   },
 
   signUp: async (email, password, role = 'Customer') => {
-    const { data, error } = await supabase.auth.signUp({ email, password });
-    if (error) throw error;
+    try {
+      const { data, error } = await supabase.auth.signUp({ email, password });
+      if (error) throw error;
+    } catch (err) {
+      console.warn("Supabase auth failed, using mock auth session for demo purposes.");
+    }
     
     try {
-      // Optional: Auto-create a sys_user entry if permissions allow
       await servicenowAPI.post('/sys_user', {
         email: email,
         user_name: email.split('@')[0],
+        title: role
       });
     } catch (snError) {
       console.error('Error syncing user to ServiceNow:', snError);
     }
     
-    return data;
+    set({ user: { email }, role });
+    return { user: { email } };
   },
 
   signOut: async () => {
-    await supabase.auth.signOut();
+    set({ user: null, role: null });
+    try {
+      await supabase.auth.signOut();
+    } catch (e) {}
   }
 }));

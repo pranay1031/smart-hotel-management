@@ -50,6 +50,7 @@ export default function Login() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState('Customer');
   const [loading, setLoading] = useState(false);
   const { signIn, signUp } = useAuthStore();
   const navigate = useNavigate();
@@ -60,12 +61,12 @@ export default function Login() {
 
     try {
       if (isSignUp) {
-        await signUp(email, password);
-        toast.success('Account created! Please sign in.');
-        setIsSignUp(false);
+        await signUp(email, password, role);
+        toast.success('Account created! Logging in...');
+        navigate('/');
       } else {
-        await signIn(email, password);
-        toast.success('Welcome back!');
+        await signIn(email, password, role);
+        toast.success(`Welcome back! Logged in as ${role}`);
         navigate('/');
       }
     } catch (error) {
@@ -123,6 +124,22 @@ export default function Login() {
                 placeholder="••••••••"
                 required
               />
+            </div>
+            
+            {/* Always show Role Selection to make testing easy */}
+            <div>
+              <label className="block text-sm font-medium text-slate-300 mb-1">Select Role to Test</label>
+              <select
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                className="glass-input w-full bg-slate-900"
+              >
+                <option value="Customer">Customer</option>
+                <option value="Staff">Staff</option>
+                <option value="Receptionist">Receptionist</option>
+                <option value="Manager">Manager</option>
+                <option value="Admin">Admin</option>
+              </select>
             </div>
 
             <button

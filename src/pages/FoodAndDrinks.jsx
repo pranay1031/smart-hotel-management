@@ -83,7 +83,7 @@ export default function FoodAndDrinks() {
             <WeatherIcon className="w-6 h-6 text-blue-400" />
           </div>
           <div>
-            <p className="text-sm text-slate-400">Live Weather (New Delhi)</p>
+            <p className="text-sm text-slate-400">Live Weather</p>
             <p className="text-lg font-bold text-white capitalize">{weather} & {temp}°C</p>
           </div>
         </div>

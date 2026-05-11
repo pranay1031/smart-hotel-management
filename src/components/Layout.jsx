@@ -81,11 +81,16 @@ export default function Layout() {
     navigate('/login');
   };
 
-  const navItems = [
+  let navItems = [
     { name: 'Dashboard', path: '/', icon: Home },
-    { name: 'Food & Drinks', path: '/food-drinks', icon: Coffee },
-    { name: 'Nearby Places', path: '/nearby', icon: Map },
   ];
+
+  if (role === 'Customer') {
+    navItems.push(
+      { name: 'Food & Drinks', path: '/food-drinks', icon: Coffee },
+      { name: 'Nearby Places', path: '/nearby', icon: Map }
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 to-black text-white flex">
@@ -126,13 +131,6 @@ export default function Layout() {
         </nav>
 
         <div className="mt-auto pt-6 border-t border-white/10">
-          <div className="mb-4 px-2 text-center bg-black/20 rounded-xl py-3 border border-white/5 shadow-inner">
-            <p className="text-xs text-indigo-400 font-semibold tracking-wider uppercase mb-1 flex items-center justify-center">
-              <Map size={12} className="mr-1" /> New Delhi
-            </p>
-            <p className="text-sm font-bold text-white mb-1">{time}</p>
-            <p className="text-xs text-slate-400">{weather.temp}°C | {weather.condition}</p>
-          </div>
           <div className="mb-4 px-2">
             <p className="text-sm text-slate-400 truncate">{user.email}</p>
             <p className="text-xs font-semibold text-indigo-400 uppercase tracking-wider mt-1">{role}</p>
@@ -148,12 +146,26 @@ export default function Layout() {
       </motion.aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 relative overflow-x-hidden">
+      <main className="flex-1 relative overflow-x-hidden flex flex-col h-screen">
         {/* Decorative background elements */}
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/20 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/20 rounded-full blur-[120px] pointer-events-none" />
         
-        <div className="p-8 h-full relative z-10">
+        {/* Top Header - Time & Weather */}
+        <div className="w-full flex justify-end px-8 pt-6 relative z-20">
+          <div className="flex items-center space-x-4 bg-white/5 backdrop-blur-md rounded-xl px-5 py-2 border border-white/10 shadow-lg">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-500/20">
+              <Map size={18} className="text-indigo-400" />
+            </div>
+            <div>
+              <p className="text-base font-bold text-white tracking-wide">{time}</p>
+              <p className="text-xs text-slate-300 font-medium">{weather.temp}°C | {weather.condition}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Dynamic Page Content */}
+        <div className="px-8 pb-8 flex-1 relative z-10 overflow-y-auto custom-scrollbar mt-4">
           <Outlet />
         </div>
       </main>
