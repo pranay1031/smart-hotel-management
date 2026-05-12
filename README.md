@@ -1,86 +1,118 @@
-# 🏨 Smart Hotel Management System
+# 🏨 Smart Hotel Management System (PS-046)
 
-A high-end, full-stack hotel management platform featuring a 3D-animated user interface and a robust enterprise backend powered completely by **ServiceNow**. 
-
-This application demonstrates complex role-based access control, real-time data synchronization, and automated incident management workflows.
-
----
-
-## ✨ Key Features
-
-### 🔐 3D Role-Based Authentication
-* Stunning 3D interactive login screen built with `@react-three/fiber` and `Three.js`.
-* **5 Distinct User Roles**: Customer, Staff, Receptionist, Manager, and Admin.
-* Role selection automatically synchronizes with the ServiceNow `sys_user` table.
-
-### 👥 Role-Specific Dashboards
-* **Customer Dashboard**: Browse available rooms, make live bookings, and submit housekeeping/maintenance requests.
-* **Receptionist Dashboard**: Manage daily check-ins and check-outs. Features a live visual grid of real-time room availability.
-* **Staff Dashboard**: Track assigned maintenance and cleaning tasks. Manage guest incidents and push live status updates to ServiceNow.
-* **Manager Dashboard**: Features interactive data visualization using `Recharts`. Track live revenue timelines, real-time room occupancy rates, and SLA metrics for open incidents.
-
-### 🤖 Automated Workflows
-* **Deep ServiceNow Integration**: Checking out a guest automatically sets the room status to "Maintenance" and instantly auto-generates a High Priority "Cleaning" task for the Staff team.
-
-### 🌍 Smart Live Environment
-* Persistent real-time New Delhi Clock configured to the `Asia/Kolkata` timezone.
-* Live global weather widget powered by the Open-Meteo API.
+![Architecture Diagram](file:///C:/Users/chitt/.gemini/antigravity/brain/a5d643e7-e1d0-4b50-b56a-89a3a61d0ad7/hotel_system_architecture_1778571364544.png)
+*Figure 1: High-Level Architecture Diagram*
 
 ---
 
-## 🛠️ Technology Stack
-
-**Frontend Application:**
-* **Framework**: React 19 + Vite
-* **Styling**: Tailwind CSS, Framer Motion (for fluid micro-animations)
-* **3D Graphics**: Three.js, `@react-three/fiber`, `@react-three/drei`
-* **State Management**: Zustand
-* **Data Visualization**: Recharts
-* **Icons**: Lucide React
-
-**Backend & Database:**
-* **ServiceNow Scoped Application**: Custom tables (`x_1939650_smart_0_*`) handling Rooms, Bookings, Food Orders, Staff Tasks, Guest Incidents, and Chat Logs.
-* **API Layer**: Axios interceptors configured for the ServiceNow Table API with CORS rules.
-* **Authentication Fallback**: Supabase (Used for session mocking and demo overriding).
+> **Project ID**: PS-046  
+> **Project Name**: Smart AI Hotel Management System  
+> **Status**: ✅ Active Development  
+> **Last Updated**: May 12, 2026
 
 ---
 
-## 🚀 Local Setup Instructions
+## 1. Project Overview
+The **Smart Hotel Management System** is a full-stack, AI-powered hotel management platform built for **Novotel Visakhapatnam Varun Beach**. It integrates a premium React front-end with a ServiceNow backend to deliver a complete digital hospitality experience for guests, staff, receptionists, managers, and admins.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/pranay1031/smart-hotel-management.git
-   cd smart-hotel-management
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Environment Variables**
-   Create a `.env` file in the root directory and add your ServiceNow and Supabase credentials:
-   ```env
-   VITE_SN_INSTANCE=https://devXXXXX.service-now.com
-   VITE_SN_USERNAME=admin
-   VITE_SN_PASSWORD=your_password
-   VITE_SUPABASE_URL=your_supabase_url
-   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-   ```
-   *(Note: The system features an intelligent fallback. If Supabase is unconfigured, the auth system will mock the session so you can still test all Dashboard UI states!)*
-
-4. **Run the Development Server**
-   ```bash
-   npm run dev
-   ```
+### Key Objectives
+- Provide guests with a self-service portal for bookings, food orders, and service requests
+- Enable staff with a real-time task management interface
+- Give managers live analytics and occupancy dashboards
+- Synchronize all data bi-directionally with ServiceNow REST APIs
+- Achieve 95+ Lighthouse scores across Performance, Accessibility, SEO, and Best Practices
 
 ---
 
-## 🏗️ System Architecture
+## 2. Technology Stack
 
-* **UI Shell**: Dynamic rendering based on `authStore` state.
-* **API Handlers**: Centralized `servicenow.js` file managing basic authentication and URL resolution for the ServiceNow REST API.
-* **Routing**: React Router DOM ensures protected routes based on active sessions.
+| Layer | Technology | Version |
+|---|---|---|
+| UI Framework | React | 19.x |
+| Build Tool | Vite | 8.x |
+| Styling | Tailwind CSS | 4.x |
+| Routing | React Router DOM | 7.x |
+| State Management | Zustand | 5.x |
+| Animations | Framer Motion | 12.x |
+| Charts | Recharts | 3.x |
+| Icons | Lucide React | 1.x |
+| 3D Graphics | Three.js / R3F | 0.184 |
+| HTTP Client | Axios | 1.x |
+| Auth Backend | Supabase | 2.x |
+| Notifications | EmailJS Browser | 4.x |
+| Data Backend | ServiceNow REST API | — |
+| Testing | Vitest + Testing Library | 4.x |
 
 ---
-*Built as a portfolio demonstration of React & ServiceNow Integration capabilities.*
+
+## 3. Architecture
+The system follows a modern "Separation of Concerns" architecture:
+- **Frontend**: React (Vite) for a fast, responsive user interface.
+- **Enterprise Backend**: ServiceNow for data storage, business rules, and workflows.
+- **Authentication**: Supabase for secure guest registration and session management.
+- **Notifications**: Centralized utility for In-app toasts, Browser popups, and Email notifications.
+
+---
+
+## 4. User Roles & Access
+
+| Role | Login Method | Portal Features |
+|---|---|---|
+| **Customer** | Supabase Email Auth | Book rooms, food orders, service requests, notifications, payments, nearby places, feedback |
+| **Staff** | Supabase Email Auth | Task management, assigned incidents |
+| **Receptionist** | Supabase Email Auth | Check-in/out, guest list |
+| **Manager** | Supabase Email Auth | Analytics, occupancy, revenue charts |
+| **Admin** | `.env` credentials | All portals + Staff Directory (sys_user table) |
+
+---
+
+## 5. Notification System
+Three-layer architecture (most reliable first):
+1. **Layer 1: react-hot-toast**: Always works (in-app).
+2. **Layer 2: Notification Timeline**: Live activity feed in the dashboard.
+3. **Layer 3: Browser Notification API**: Desktop popups (requires OS permission).
+
+---
+
+## 6. ServiceNow Tables
+
+| Table | Purpose |
+|---|---|
+| `x_1939650_smart_0_bookings` | Room reservations |
+| `x_1939650_smart_0_room` | Room inventory & availability |
+| `x_1939650_smart_0_food_orders` | Restaurant / room service orders |
+| `x_1939650_smart_0_guest_incidents` | Service requests & complaints |
+| `x_1939650_smart_0_notifications` | Email/push notification queue |
+| `x_1939650_smart_0_payments` | Billing & payment records |
+| `x_1939650_smart_0_feedback` | Guest reviews and ratings |
+| `x_1939650_smart_0_staff_tasks` | Housekeeping/delivery tasks |
+| `x_1939650_smart_0_sla_metrics` | Response time tracking |
+| `sys_user` | Staff Directory (Admin view) |
+
+---
+
+## 7. Run Commands
+
+```bash
+npm install          # Install dependencies
+npm run dev          # Development server → localhost:5173
+npm run build        # Production build → dist/
+npm run preview      # Preview build → localhost:4173 (use for Lighthouse)
+npm run test         # Run Vitest unit tests
+```
+
+---
+
+## 8. Lighthouse Scores
+Optimized for:
+- ✅ **Performance**: Code splitting, lazy loading, optimized assets.
+- ✅ **Accessibility**: ARIA labels, semantic HTML, keyboard focus management.
+- ✅ **SEO**: Meta tags, robots.txt, descriptive titles.
+
+---
+
+## 9. Developer Info
+- **Team**: PS-046
+- **Lead Developer**: chittemreddypranay
+- **Email**: chittemreddypranay@gmail.com
+- **ServiceNow Instance**: dev189725.service-now.com

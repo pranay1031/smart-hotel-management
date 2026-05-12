@@ -60,7 +60,7 @@ export default function StaffDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-3xl font-bold text-white mb-2">Staff Dashboard</h2>
+        <h2 className="text-3xl font-bold text-white mb-2">Staff Home</h2>
         <p className="text-slate-400">View and resolve your assigned tasks and guest requests.</p>
       </div>
 

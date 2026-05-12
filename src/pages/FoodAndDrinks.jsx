@@ -89,24 +89,24 @@ export default function FoodAndDrinks() {
 
   const menuItems = [
     // South Indian
-    { id: 1, name: 'Vizag Pesarattu', category: 'south', price: 120, tags: ['sunny', 'cloudy'], image: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=400&q=80', rating: 4.8 },
-    { id: 2, name: 'Ghee Roast Dosa', category: 'south', price: 150, tags: ['sunny'], image: 'https://images.unsplash.com/photo-1668236543090-52ee0d3917ba?auto=format&fit=crop&w=400&q=80', rating: 4.9 },
-    { id: 3, name: 'Idli Sambar', category: 'south', price: 90, tags: ['rainy'], image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=400&q=80', rating: 4.7 },
+    { id: 1, name: 'Vizag Pesarattu', category: 'south', price: 120, tags: ['sunny', 'cloudy'], image: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=400&q=40', rating: 4.8 },
+    { id: 2, name: 'Ghee Roast Dosa', category: 'south', price: 150, tags: ['sunny'], image: 'https://images.unsplash.com/photo-1668236543090-52ee0d3917ba?auto=format&fit=crop&w=400&q=40', rating: 4.9 },
+    { id: 3, name: 'Idli Sambar', category: 'south', price: 90, tags: ['rainy'], image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=400&q=40', rating: 4.7 },
     
     // North Indian
-    { id: 4, name: 'Butter Chicken', category: 'north', price: 450, tags: ['rainy', 'cloudy'], image: 'https://images.unsplash.com/photo-1603894584373-5ac82b6ae398?auto=format&fit=crop&w=400&q=80', rating: 4.9 },
-    { id: 5, name: 'Paneer Butter Masala', category: 'north', price: 380, tags: ['sunny', 'cloudy'], image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=400&q=80', rating: 4.8 },
-    { id: 6, name: 'Dal Makhani', category: 'north', price: 320, tags: ['cloudy'], image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=400&q=80', rating: 4.6 },
+    { id: 4, name: 'Butter Chicken', category: 'north', price: 450, tags: ['rainy', 'cloudy'], image: 'https://images.unsplash.com/photo-1603894584373-5ac82b6ae398?auto=format&fit=crop&w=400&q=40', rating: 4.9 },
+    { id: 5, name: 'Paneer Butter Masala', category: 'north', price: 380, tags: ['sunny', 'cloudy'], image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=400&q=40', rating: 4.8 },
+    { id: 6, name: 'Dal Makhani', category: 'north', price: 320, tags: ['cloudy'], image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=400&q=40', rating: 4.6 },
     
     // Continental
-    { id: 7, name: 'Grilled Salmon', category: 'continental', price: 750, tags: ['sunny'], image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=400&q=80', rating: 4.9 },
-    { id: 8, name: 'Wild Mushroom Risotto', category: 'continental', price: 550, tags: ['cloudy', 'rainy'], image: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=400&q=80', rating: 4.7 },
+    { id: 7, name: 'Grilled Salmon', category: 'continental', price: 750, tags: ['sunny'], image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=400&q=40', rating: 4.9 },
+    { id: 8, name: 'Wild Mushroom Risotto', category: 'continental', price: 550, tags: ['cloudy', 'rainy'], image: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=400&q=40', rating: 4.7 },
     
     // Drinks
-    { id: 9, name: 'Vizag Special Lassi', category: 'drinks', price: 110, tags: ['sunny'], image: 'https://images.unsplash.com/photo-1571006682858-a5c715184c70?auto=format&fit=crop&w=400&q=80', rating: 4.8 },
-    { id: 10, name: 'Masala Chai', category: 'drinks', price: 60, tags: ['rainy', 'cloudy'], image: 'https://images.unsplash.com/photo-1576092762791-dd9e2220abd1?auto=format&fit=crop&w=400&q=80', rating: 4.9 },
-    { id: 11, name: 'Fresh Watermelon Juice', category: 'drinks', price: 140, tags: ['sunny'], image: 'https://images.unsplash.com/photo-1562051036-e0eea191d42f?auto=format&fit=crop&w=400&q=80', rating: 4.7 },
-    { id: 12, name: 'Signature Blue Margarita', category: 'drinks', price: 650, tags: ['sunny', 'cloudy'], image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=400&q=80', rating: 4.9 },
+    { id: 9, name: 'Vizag Special Lassi', category: 'drinks', price: 110, tags: ['sunny'], image: 'https://images.unsplash.com/photo-1571006682858-a5c715184c70?auto=format&fit=crop&w=400&q=40', rating: 4.8 },
+    { id: 10, name: 'Masala Chai', category: 'drinks', price: 60, tags: ['rainy', 'cloudy'], image: 'https://images.unsplash.com/photo-1576092762791-dd9e2220abd1?auto=format&fit=crop&w=400&q=40', rating: 4.9 },
+    { id: 11, name: 'Fresh Watermelon Juice', category: 'drinks', price: 140, tags: ['sunny'], image: 'https://images.unsplash.com/photo-1562051036-e0eea191d42f?auto=format&fit=crop&w=400&q=40', rating: 4.7 },
+    { id: 12, name: 'Signature Blue Margarita', category: 'drinks', price: 650, tags: ['sunny', 'cloudy'], image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=400&q=40', rating: 4.9 },
   ];
 
   const filteredItems = menuItems.filter(item => 
@@ -169,6 +169,9 @@ export default function FoodAndDrinks() {
                 <img 
                   src={item.image} 
                   alt={item.name} 
+                  width="600"
+                  height="192"
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center text-xs text-amber-400 font-bold">
@@ -203,8 +206,8 @@ export default function FoodAndDrinks() {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`flex items-center space-x-3 px-8 py-3 rounded-2xl whitespace-nowrap transition-all duration-300 font-bold ${
                   activeCategory === cat.id 
-                    ? 'bg-indigo-500 text-white shadow-xl shadow-indigo-500/20' 
-                    : 'bg-white/5 text-slate-400 hover:bg-white/10 border border-white/5'
+                    ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-xl shadow-indigo-500/30' 
+                    : 'bg-indigo-500/5 text-slate-400 hover:bg-indigo-500/10 border border-white/5'
                 }`}
               >
                 <Icon size={18} />
@@ -224,7 +227,7 @@ export default function FoodAndDrinks() {
               className="glass-panel rounded-3xl overflow-hidden flex flex-row h-32 relative border border-white/5 group"
             >
               <div className="w-32 h-full overflow-hidden">
-                <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <img src={item.image} alt={item.name} width="128" height="128" loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
               <div className="p-4 flex-1 flex flex-col justify-center pr-14">
                 <h4 className="font-bold text-white text-lg leading-tight mb-1">{item.name}</h4>

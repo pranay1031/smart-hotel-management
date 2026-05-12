@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Navigation, Clock, Star, Loader } from 'lucide-react';
-import { servicenowAPI } from '../lib/servicenow';
+import { MapPin, Navigation, Clock, Star, Loader, Expand } from 'lucide-react';
 
 export default function NearbyPlaces() {
   const [selectedPlace, setSelectedPlace] = useState(null);
@@ -18,7 +17,7 @@ export default function NearbyPlaces() {
       dist: "0.1 km", 
       time: "2 min walk", 
       category: "Nature", 
-      image: "https://images.unsplash.com/photo-1590523741491-030f25232997?auto=format&fit=crop&w=400&q=80", 
+      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=40", 
       rating: 4.8,
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d3800.2785006323447!2d83.31512167576595!3d17.71076298323862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39431489e5306d%3A0x2d1746f3a749365!2sRamakrishna%20Mission%20Beach!5e0!3m2!1sen!2sin!4v1715462000000!5m2!1sen!2sin"
     },
@@ -27,7 +26,7 @@ export default function NearbyPlaces() {
       dist: "1.2 km", 
       time: "4 min drive", 
       category: "Museum", 
-      image: "https://images.unsplash.com/photo-1596422846543-b5c641617939?auto=format&fit=crop&w=400&q=80", 
+      image: "https://images.unsplash.com/photo-1550293149-1e7d0843516c?auto=format&fit=crop&w=400&q=40", 
       rating: 4.9,
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d3800.0!2d83.3!3d17.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3943156942c73d%3A0xe76464817a3a0c70!2sINS%20Kursura%20Submarine%20Museum!5e0!3m2!1sen!2sin!4v1715462000001!5m2!1sen!2sin"
     },
@@ -36,7 +35,7 @@ export default function NearbyPlaces() {
       dist: "2.5 km", 
       time: "7 min drive", 
       category: "Park", 
-      image: "https://images.unsplash.com/photo-1585938338670-d0140232491a?auto=format&fit=crop&w=400&q=80", 
+      image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=400&q=40", 
       rating: 4.5,
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d3800.1!2d83.32!3d17.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3943166942c73d%3A0xe76464817a3a0c70!2sVuda%20Park!5e0!3m2!1sen!2sin!4v1715462000002!5m2!1sen!2sin"
     },
@@ -45,7 +44,7 @@ export default function NearbyPlaces() {
       dist: "6.8 km", 
       time: "15 min drive", 
       category: "Attraction", 
-      image: "https://images.unsplash.com/photo-1623945227064-358602c71b6e?auto=format&fit=crop&w=400&q=80", 
+      image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=40", 
       rating: 4.7,
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d3800.5!2d83.35!3d17.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3943376942c73d%3A0xe76464817a3a0c70!2sKailasagiri!5e0!3m2!1sen!2sin!4v1715462000003!5m2!1sen!2sin"
     },
@@ -54,7 +53,7 @@ export default function NearbyPlaces() {
       dist: "11.2 km", 
       time: "25 min drive", 
       category: "Beach", 
-      image: "https://images.unsplash.com/photo-1626014303757-640c4251ba74?auto=format&fit=crop&w=400&q=80", 
+      image: "https://images.unsplash.com/photo-1506929199175-609ec3ee8710?auto=format&fit=crop&w=400&q=40", 
       rating: 4.9,
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d3801.0!2d83.38!3d17.78!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3943486942c73d%3A0xe76464817a3a0c70!2sRushikonda%20Beach!5e0!3m2!1sen!2sin!4v1715462000004!5m2!1sen!2sin"
     }
@@ -92,6 +91,7 @@ export default function NearbyPlaces() {
             src={currentMapUrl} 
             width="100%" 
             height="100%" 
+            title={`Map showing ${selectedPlace ? selectedPlace.name : 'Novotel Varun Beach'}`}
             style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%)' }} 
             allowFullScreen="" 
             loading="lazy" 
@@ -138,7 +138,7 @@ export default function NearbyPlaces() {
               }`}
             >
               <div className="w-20 h-20 rounded-xl overflow-hidden shrink-0">
-                <img src={place.image} alt={place.name} className="w-full h-full object-cover" />
+                <img src={place.image} alt={place.name} width="80" height="80" loading="lazy" className="w-full h-full object-cover" />
               </div>
               <div className="flex-1">
                 <div className="flex justify-between items-start">

@@ -76,7 +76,7 @@ export default function ManagerDashboard() {
     <div className="space-y-6 pb-20">
       <div className="flex justify-between items-end">
         <div>
-          <h2 className="text-3xl font-bold text-white mb-2">Manager Analytics</h2>
+          <h2 className="text-3xl font-bold text-white mb-2">Manager Home</h2>
           <p className="text-slate-400">Live operational data, revenue tracking, and SLA monitoring.</p>
         </div>
         <button 

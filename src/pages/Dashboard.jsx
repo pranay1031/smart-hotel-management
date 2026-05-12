@@ -4,6 +4,7 @@ import AdminDashboard from './dashboards/AdminDashboard';
 import StaffDashboard from './dashboards/StaffDashboard';
 import ReceptionistDashboard from './dashboards/ReceptionistDashboard';
 import ManagerDashboard from './dashboards/ManagerDashboard';
+import StaffManagement from './StaffManagement';
 
 export default function Dashboard() {
   const { role } = useAuthStore();
@@ -16,6 +17,11 @@ export default function Dashboard() {
       case 'Manager': return <ManagerDashboard />;
       default: return <CustomerDashboard />;
     }
+  }
+
+  // Handle Admin sub-pages
+  if (role === 'Admin' && window.location.pathname === '/staff-management') {
+    return <StaffManagement />;
   }
 
   // Handle Customer sub-pages

@@ -86,7 +86,7 @@ export default function ReceptionistDashboard() {
     <div className="space-y-6">
       <div className="flex justify-between items-end">
         <div>
-          <h2 className="text-3xl font-bold text-white mb-2">Receptionist Dashboard</h2>
+          <h2 className="text-3xl font-bold text-white mb-2">Receptionist Home</h2>
           <p className="text-slate-400">Manage daily check-ins, check-outs, and live room allocation.</p>
         </div>
       </div>

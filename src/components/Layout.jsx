@@ -82,13 +82,12 @@ export default function Layout() {
   };
 
   let navItems = [
-    { name: 'Dashboard', path: '/', icon: Home },
+    { name: 'Home', path: '/', icon: Home },
   ];
 
   if (role === 'Customer') {
     navItems.push(
       { name: 'Book Room', path: '/book-room', icon: BedDouble },
-      { name: 'My Bookings', path: '/my-bookings', icon: Calendar },
       { name: 'Food & Drinks', path: '/food-drinks', icon: Coffee },
       { name: 'Room Services', path: '/services', icon: Wrench },
       { name: 'Nearby Places', path: '/nearby', icon: Map },
@@ -97,6 +96,10 @@ export default function Layout() {
       { name: 'Feedback', path: '/feedback', icon: Star },
       { name: 'Settings', path: '/settings', icon: Settings }
     );
+  }
+
+  if (role === 'Admin') {
+    navItems.push({ name: 'Staff Directory', path: '/staff-management', icon: Users });
   }
 
   return (
@@ -124,10 +127,12 @@ export default function Layout() {
               <button
                 key={item.path}
                 onClick={() => navigate(item.path)}
+                aria-label={`Navigate to ${item.name}`}
+                aria-current={isActive ? 'page' : undefined}
                 className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300 ${
                   isActive 
-                    ? 'bg-white/10 text-white shadow-inner border border-white/5' 
-                    : 'text-slate-400 hover:text-white hover:bg-white/5'
+                    ? 'bg-indigo-500/15 text-white shadow-inner border border-indigo-500/20' 
+                    : 'text-slate-400 hover:text-white hover:bg-indigo-500/5'
                 }`}
               >
                 <Icon size={20} className={isActive ? 'text-indigo-400' : ''} />
@@ -144,6 +149,7 @@ export default function Layout() {
           </div>
           <button
             onClick={handleSignOut}
+            aria-label="Sign out of your account"
             className="w-full flex items-center justify-center space-x-2 px-4 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-lg transition-colors border border-red-500/20"
           >
             <LogOut size={18} />

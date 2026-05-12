@@ -48,12 +48,24 @@ export const useAuthStore = create((set, get) => ({
   },
 
   signIn: async (email, password) => {
+    const adminEmail = import.meta.env.VITE_ADMIN_EMAIL;
+    const adminPass = import.meta.env.VITE_ADMIN_PASSWORD;
+
     let assignedRole = 'Customer';
     const emailLower = email.toLowerCase();
-    if (emailLower.includes('ramu')) assignedRole = 'Admin';
-    else if (emailLower.includes('krishna')) assignedRole = 'Manager';
-    else if (emailLower.includes('sita')) assignedRole = 'Receptionist';
-    else if (emailLower.includes('ravi')) assignedRole = 'Staff';
+
+    // Check against ENV credentials for Admin
+    if (email === adminEmail && password === adminPass) {
+      assignedRole = 'Admin';
+    } else if (emailLower.includes('ramu')) {
+      assignedRole = 'Admin';
+    } else if (emailLower.includes('krishna')) {
+      assignedRole = 'Manager';
+    } else if (emailLower.includes('sita')) {
+      assignedRole = 'Receptionist';
+    } else if (emailLower.includes('ravi')) {
+      assignedRole = 'Staff';
+    }
 
     try {
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
