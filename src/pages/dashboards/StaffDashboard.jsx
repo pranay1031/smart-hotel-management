@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { servicenowAPI } from '../../lib/servicenow';
 import { motion } from 'framer-motion';
-import { Loader, CheckSquare, Clock, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { Loader, CheckSquare, AlertTriangle, CheckCircle2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export default function StaffDashboard() {
@@ -10,7 +10,7 @@ export default function StaffDashboard() {
   const [incidents, setIncidents] = useState([]);
   const [updating, setUpdating] = useState(null);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const [tasksRes, incRes] = await Promise.all([
         servicenowAPI.get('/x_1939650_smart_0_staff_tasks'),
@@ -23,11 +23,14 @@ export default function StaffDashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    const timer = setTimeout(() => {
+      fetchData();
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [fetchData]);
 
   const updateTaskStatus = async (sys_id, newStatus) => {
     setUpdating(sys_id);
@@ -36,6 +39,7 @@ export default function StaffDashboard() {
       toast.success('Task status updated');
       fetchData();
     } catch (error) {
+      console.error('Task update error:', error);
       toast.error('Failed to update task');
     } finally {
       setUpdating(null);
@@ -49,6 +53,7 @@ export default function StaffDashboard() {
       toast.success('Incident status updated');
       fetchData();
     } catch (error) {
+      console.error('Incident update error:', error);
       toast.error('Failed to update incident');
     } finally {
       setUpdating(null);

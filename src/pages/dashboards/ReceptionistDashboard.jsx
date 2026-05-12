@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { servicenowAPI } from '../../lib/servicenow';
 import { motion } from 'framer-motion';
 import { Loader, Users, LogIn, LogOut, BedDouble } from 'lucide-react';
@@ -10,7 +10,7 @@ export default function ReceptionistDashboard() {
   const [rooms, setRooms] = useState([]);
   const [updating, setUpdating] = useState(null);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const [bookingsRes, roomsRes] = await Promise.all([
         servicenowAPI.get('/x_1939650_smart_0_bookings'),
@@ -23,11 +23,14 @@ export default function ReceptionistDashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    const timer = setTimeout(() => {
+      fetchData();
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [fetchData]);
 
   const handleCheckIn = async (booking) => {
     setUpdating(booking.sys_id);
@@ -43,6 +46,7 @@ export default function ReceptionistDashboard() {
       toast.success(`${booking.guest_name} successfully checked in!`);
       fetchData();
     } catch (error) {
+      console.error('Check-in error:', error);
       toast.error('Check-in failed.');
     } finally {
       setUpdating(null);
@@ -72,6 +76,7 @@ export default function ReceptionistDashboard() {
       toast.success(`${booking.guest_name} successfully checked out! Cleaning task generated.`);
       fetchData();
     } catch (error) {
+      console.error('Check-out error:', error);
       toast.error('Check-out failed.');
     } finally {
       setUpdating(null);

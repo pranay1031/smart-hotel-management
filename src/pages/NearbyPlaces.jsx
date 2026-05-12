@@ -1,15 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Navigation, Clock, Star, Loader, Expand } from 'lucide-react';
+import { MapPin, Navigation, Clock, Star, Expand } from 'lucide-react';
 
 export default function NearbyPlaces() {
   const [selectedPlace, setSelectedPlace] = useState(null);
-
-  const novotelLocation = {
-    name: "Novotel Visakhapatnam Varun Beach",
-    address: "RK Beach Rd, Maharani Peta, Vizag",
-    coords: { lat: 17.7107, lng: 83.3174 }
-  };
 
   const places = [
     { 
@@ -117,7 +111,10 @@ export default function NearbyPlaces() {
               </p>
             </div>
             
-            <button className="glass-panel p-3 rounded-full border border-white/10 pointer-events-auto hover:bg-white/10 transition-colors">
+            <button 
+              aria-label="Expand map view"
+              className="glass-panel p-3 rounded-full border border-white/10 pointer-events-auto hover:bg-white/10 transition-colors"
+            >
               <Expand className="text-white" size={20} />
             </button>
           </div>

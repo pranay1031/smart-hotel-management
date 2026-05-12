@@ -1,20 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../store/authStore';
 import { servicenowAPI } from '../../lib/servicenow';
 import { notify, sendBookingEmail, sendServiceEmail, sendDesktopNotification, requestNotificationPermission } from '../../lib/notifications';
 import { motion, AnimatePresence } from 'framer-motion';
+import { supabase } from '../../lib/supabase';
 import { 
   BedDouble, Plus, Wrench, X, Loader, 
   CreditCard, Bell, Star, Settings, 
-  MessageSquare, LayoutDashboard, History,
-  TrendingUp, ShoppingBag, Clock, Heart,
+  LayoutDashboard, History,
+  TrendingUp, ShoppingBag, 
   DollarSign, MapPin
 } from 'lucide-react';
-import { 
-  AreaChart, Area, XAxis, YAxis, CartesianGrid, 
-  Tooltip, ResponsiveContainer, BarChart, Bar 
-} from 'recharts';
 import toast from 'react-hot-toast';
 
 const NavCard = ({ title, desc, icon: Icon, color, onClick }) => (
@@ -39,7 +36,7 @@ const NavCard = ({ title, desc, icon: Icon, color, onClick }) => (
 );
 
 // --- Main Dashboard View ---
-const DashboardHome = ({ myBookings, stats, chartData, incidents, foodOrders }) => {
+const DashboardHome = ({ myBookings, incidents, foodOrders }) => {
   const navigate = useNavigate();
 
   const navItems = [
@@ -313,7 +310,7 @@ export default function CustomerDashboard({ view = '/' }) {
   const [serviceForm, setServiceForm] = useState({ type: 'cleaning', priority: 'medium', desc: '', room: '' });
   const [submitting, setSubmitting] = useState(false);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     setLoading(true);
     try {
       const [bookRes, roomsRes, foodRes, incidentRes, notifyRes, payRes] = await Promise.all([
@@ -367,15 +364,17 @@ export default function CustomerDashboard({ view = '/' }) {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user.email]);
 
   useEffect(() => {
-    if (user?.email) {
-      fetchData();
-      // Request desktop notification permission on first load
-      requestNotificationPermission();
-    }
-  }, [user]);
+    const timer = setTimeout(() => {
+      if (user?.email) {
+        fetchData();
+        requestNotificationPermission();
+      }
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [user.email, fetchData]);
 
   const handleBookingSubmit = async (e) => {
     e.preventDefault();
@@ -433,7 +432,7 @@ export default function CustomerDashboard({ view = '/' }) {
       fetchData();
     } catch (error) {
       console.error('Booking error:', error);
-      toast.error('Failed to book room.');
+      toast.error('Failed to book room: ' + error.message);
     } finally {
       setSubmitting(false);
     }
@@ -476,6 +475,7 @@ export default function CustomerDashboard({ view = '/' }) {
       setShowServiceModal(false);
       fetchData();
     } catch (error) {
+      console.error('Service error:', error);
       toast.error('Failed to submit request.');
     } finally {
       setSubmitting(false);
@@ -592,6 +592,10 @@ export default function CustomerDashboard({ view = '/' }) {
                       <img 
                         src={room.image_url || 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80'} 
                         onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80'; }}
+                        alt={`Luxury ${room.room_type} Room ${room.room_number}`}
+                        width="800"
+                        height="600"
+                        loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                       />
                       <div className="absolute top-4 right-4 bg-indigo-500/90 backdrop-blur-md text-white text-sm font-bold px-4 py-1.5 rounded-full shadow-lg">
@@ -828,15 +832,30 @@ export default function CustomerDashboard({ view = '/' }) {
                 e.preventDefault();
                 setSubmitting(true);
                 try {
+                  // Save to ServiceNow
                   await servicenowAPI.post('/x_1939650_smart_0_feedback', {
                     guest_name: user?.email.split('@')[0],
                     rating: e.target.rating.value,
                     review: e.target.review.value,
                     booking: myBookings[0]?.sys_id || ''
                   });
+
+                  // Save to Supabase
+                  await supabase.from('feedback').insert([
+                    {
+                      guest_email: user?.email,
+                      guest_name: user?.email.split('@')[0],
+                      rating: parseInt(e.target.rating.value),
+                      review: e.target.review.value,
+                      booking_id: myBookings[0]?.booking_id || 'DEMO-101',
+                      created_at: new Date().toISOString()
+                    }
+                  ]);
+
                   toast.success('Thank you for your feedback!');
                   e.target.reset();
                 } catch (err) {
+                  console.error('Feedback error:', err);
                   toast.error('Failed to submit feedback.');
                 } finally {
                   setSubmitting(false);

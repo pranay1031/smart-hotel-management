@@ -83,7 +83,7 @@ export const useAuthStore = create((set, get) => ({
     try {
       await supabase.auth.resetPasswordForEmail(email);
     } catch (err) {
-      console.warn("Mock password reset.");
+      console.warn("Password reset error:", err.message);
     }
   },
 
@@ -110,6 +110,8 @@ export const useAuthStore = create((set, get) => ({
     set({ user: null, role: null });
     try {
       await supabase.auth.signOut();
-    } catch (e) {}
+    } catch (e) {
+      console.error("Sign out error:", e);
+    }
   }
 }));

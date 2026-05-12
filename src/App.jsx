@@ -4,86 +4,97 @@ import { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
 import { useAuthStore } from './store/authStore';
 
+import { lazy, Suspense } from 'react';
+import { Loader } from 'lucide-react';
+
 // Components
 import Layout from './components/Layout';
 import PageTransition from './components/PageTransition';
 import Chatbot from './components/Chatbot';
 
-// Pages
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import FoodAndDrinks from './pages/FoodAndDrinks';
-import NearbyPlaces from './pages/NearbyPlaces';
+// Lazy Pages
+const Login = lazy(() => import('./pages/Login'));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+const FoodAndDrinks = lazy(() => import('./pages/FoodAndDrinks'));
+const NearbyPlaces = lazy(() => import('./pages/NearbyPlaces'));
+
+const LoadingFallback = () => (
+  <div className="h-screen w-full flex items-center justify-center bg-slate-950">
+    <Loader className="w-10 h-10 text-indigo-500 animate-spin" />
+  </div>
+);
 
 function AnimatedRoutes() {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/login" element={
-          <PageTransition>
-            <Login />
-          </PageTransition>
-        } />
-        
-        <Route element={<Layout />}>
-          <Route path="/" element={
+      <Suspense fallback={<LoadingFallback />}>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/login" element={
             <PageTransition>
-              <Dashboard />
+              <Login />
             </PageTransition>
           } />
-          <Route path="/book-room" element={
-            <PageTransition>
-              <Dashboard />
-            </PageTransition>
-          } />
-          <Route path="/my-bookings" element={
-            <PageTransition>
-              <Dashboard />
-            </PageTransition>
-          } />
-          <Route path="/food-drinks" element={
-            <PageTransition>
-              <FoodAndDrinks />
-            </PageTransition>
-          } />
-          <Route path="/services" element={
-            <PageTransition>
-              <Dashboard />
-            </PageTransition>
-          } />
-          <Route path="/nearby" element={
-            <PageTransition>
-              <NearbyPlaces />
-            </PageTransition>
-          } />
-          <Route path="/notifications" element={
-            <PageTransition>
-              <Dashboard />
-            </PageTransition>
-          } />
-          <Route path="/payments" element={
-            <PageTransition>
-              <Dashboard />
-            </PageTransition>
-          } />
-          <Route path="/chat" element={
-            <PageTransition>
-              <Dashboard />
-            </PageTransition>
-          } />
-          <Route path="/feedback" element={
-            <PageTransition>
-              <Dashboard />
-            </PageTransition>
-          } />
-          <Route path="/settings" element={
-            <PageTransition>
-              <Dashboard />
-            </PageTransition>
-          } />
-        </Route>
-      </Routes>
+          
+          <Route element={<Layout />}>
+            <Route path="/" element={
+              <PageTransition>
+                <Dashboard />
+              </PageTransition>
+            } />
+            <Route path="/book-room" element={
+              <PageTransition>
+                <Dashboard />
+              </PageTransition>
+            } />
+            <Route path="/my-bookings" element={
+              <PageTransition>
+                <Dashboard />
+              </PageTransition>
+            } />
+            <Route path="/food-drinks" element={
+              <PageTransition>
+                <FoodAndDrinks />
+              </PageTransition>
+            } />
+            <Route path="/services" element={
+              <PageTransition>
+                <Dashboard />
+              </PageTransition>
+            } />
+            <Route path="/nearby" element={
+              <PageTransition>
+                <NearbyPlaces />
+              </PageTransition>
+            } />
+            <Route path="/notifications" element={
+              <PageTransition>
+                <Dashboard />
+              </PageTransition>
+            } />
+            <Route path="/payments" element={
+              <PageTransition>
+                <Dashboard />
+              </PageTransition>
+            } />
+            <Route path="/chat" element={
+              <PageTransition>
+                <Dashboard />
+              </PageTransition>
+            } />
+            <Route path="/feedback" element={
+              <PageTransition>
+                <Dashboard />
+              </PageTransition>
+            } />
+            <Route path="/settings" element={
+              <PageTransition>
+                <Dashboard />
+              </PageTransition>
+            } />
+          </Route>
+        </Routes>
+      </Suspense>
     </AnimatePresence>
   );
 }

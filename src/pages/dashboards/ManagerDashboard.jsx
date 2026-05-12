@@ -9,6 +9,8 @@ export default function ManagerDashboard() {
   const [rooms, setRooms] = useState([]);
   const [bookings, setBookings] = useState([]);
   const [incidents, setIncidents] = useState([]);
+  const [showRoomForm, setShowRoomForm] = useState(false);
+  const [newRoom, setNewRoom] = useState({ number: '', type: 'Deluxe', price: '', status: 'Available' });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,9 +33,6 @@ export default function ManagerDashboard() {
   }, []);
 
   if (loading) return <div className="flex justify-center items-center h-full"><Loader className="w-8 h-8 text-indigo-400 animate-spin" /></div>;
-
-  const [showRoomForm, setShowRoomForm] = useState(false);
-  const [newRoom, setNewRoom] = useState({ number: '', type: 'Deluxe', price: '', status: 'Available' });
 
   // Process Room Data for Pie Chart
   const availableCount = rooms.filter(r => r.u_status === 'Available' || r.status === 'Available').length;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { servicenowAPI } from '../lib/servicenow';
 import { motion } from 'framer-motion';
-import { Users, Search, Filter, ShieldCheck, Mail, User, Loader, RefreshCcw } from 'lucide-react';
+import { Search, Filter, ShieldCheck, Mail, User, Loader, RefreshCcw } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export default function StaffManagement() {
@@ -29,7 +29,10 @@ export default function StaffManagement() {
   };
 
   useEffect(() => {
-    fetchStaff();
+    const timer = setTimeout(() => {
+      fetchStaff();
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
 
   const filteredStaff = staff.filter(s => 

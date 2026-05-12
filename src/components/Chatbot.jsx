@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, Send, X, Bot, User, Loader, Mic, MicOff, Volume2, VolumeX, Sparkles } from 'lucide-react';
+import { MessageSquare, Send, X, Bot, User, Loader, Mic, Volume2, VolumeX, Sparkles } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
 import { servicenowAPI } from '../lib/servicenow';
 import { getChatbotResponse } from '../lib/aiService';
@@ -44,9 +44,6 @@ export default function Chatbot() {
       recognition.onerror = (event) => {
         console.error('Speech recognition error:', event.error);
         setIsListening(false);
-        if (event.error === 'not-allowed') {
-          alert("Microphone access denied. Please enable it in your browser settings.");
-        }
       };
 
       recognition.onend = () => {
@@ -83,13 +80,11 @@ export default function Chatbot() {
       recognitionRef.current?.stop();
     } else {
       if (!recognitionRef.current) {
-        alert("Speech recognition not supported.");
         return;
       }
       try {
         recognitionRef.current.start();
       } catch (e) {
-        // Recognition might already be started or in a weird state
         console.error(e);
       }
     }
@@ -104,7 +99,6 @@ export default function Chatbot() {
     setIsTyping(true);
 
     try {
-      // Add language context to the message
       const promptContext = lang === 'te-IN' ? " (Please respond in Telugu)" : "";
       const response = await getChatbotResponse(userMessage + promptContext, user);
       
@@ -117,9 +111,9 @@ export default function Chatbot() {
         u_message: userMessage,
         u_response: response,
         u_lang: lang
-      }).catch(e => {});
+      }).catch(() => {});
 
-    } catch (error) {
+    } catch {
       setIsTyping(false);
     }
   };
@@ -167,11 +161,16 @@ export default function Chatbot() {
                 </button>
                 <button 
                   onClick={() => setIsMuted(!isMuted)} 
+                  aria-label={isMuted ? "Unmute chatbot" : "Mute chatbot"}
                   className="text-white/80 hover:text-white p-2 hover:bg-white/10 rounded-full transition-all"
                 >
                   {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
                 </button>
-                <button onClick={() => setIsOpen(false)} className="text-white/80 hover:text-white p-2 hover:bg-white/10 rounded-full transition-all">
+                <button 
+                  onClick={() => setIsOpen(false)} 
+                  aria-label="Close chat"
+                  className="text-white/80 hover:text-white p-2 hover:bg-white/10 rounded-full transition-all"
+                >
                   <X size={20} />
                 </button>
               </div>

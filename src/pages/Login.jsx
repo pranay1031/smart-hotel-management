@@ -108,7 +108,7 @@ export default function Login() {
       await signIn(demoEmail, 'aditya@123');
       toast.success('Quick login successful!');
       navigate('/');
-    } catch (error) {
+    } catch {
       toast.error('Login failed.');
     } finally {
       setLoading(false);
@@ -181,9 +181,11 @@ export default function Login() {
           {/* Form Area */}
           <form onSubmit={isGuestPortal ? handleGuestSubmit : handleStaffSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
+              <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
               <input
+                id="email"
                 type="email"
+                autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="glass-input w-full"
@@ -204,7 +206,9 @@ export default function Login() {
                 </div>
                 <div className="relative">
                   <input
+                    id="password"
                     type={showPassword ? "text" : "password"}
+                    autoComplete={isSignUp ? "new-password" : "current-password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="glass-input w-full pr-10"
@@ -214,6 +218,7 @@ export default function Login() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition-colors"
                   >
                     {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}

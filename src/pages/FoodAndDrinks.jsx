@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Coffee, Pizza, Wine, Cloud, Sun, CloudRain, ShoppingBag, X, Clock, MapPin, Star, Loader } from 'lucide-react';
+import { Coffee, Pizza, Wine, Cloud, Sun, CloudRain, ShoppingBag, X, Clock, Star, Loader } from 'lucide-react';
 import { servicenowAPI } from '../lib/servicenow';
 import { useAuthStore } from '../store/authStore';
 import toast from 'react-hot-toast';

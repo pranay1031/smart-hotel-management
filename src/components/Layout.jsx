@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
-import { LogOut, Home, Coffee, Map, Loader, BedDouble, Calendar, Wrench, Bell, CreditCard, MessageSquare, Star, Settings } from 'lucide-react';
+import { LogOut, Home, Coffee, Map, Loader, BedDouble, Wrench, Bell, CreditCard, Star, Settings, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Layout() {
