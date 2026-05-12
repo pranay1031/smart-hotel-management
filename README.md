@@ -1,118 +1,154 @@
-# 🏨 Smart Hotel Management System (PS-046)
+# 🏨 Novotel Smart Hotel — AI-Powered Management System (PS-046)
 
-![Architecture Diagram](file:///C:/Users/chitt/.gemini/antigravity/brain/a5d643e7-e1d0-4b50-b56a-89a3a61d0ad7/hotel_system_architecture_1778571364544.png)
-*Figure 1: High-Level Architecture Diagram*
-
----
-
-> **Project ID**: PS-046  
-> **Project Name**: Smart AI Hotel Management System  
-> **Status**: ✅ Active Development  
-> **Last Updated**: May 12, 2026
+An end-to-end, enterprise-grade hospitality platform that integrates a premium React frontend with a robust ServiceNow backend to deliver a seamless "Smart Hotel" experience.
 
 ---
 
-## 1. Project Overview
-The **Smart Hotel Management System** is a full-stack, AI-powered hotel management platform built for **Novotel Visakhapatnam Varun Beach**. It integrates a premium React front-end with a ServiceNow backend to deliver a complete digital hospitality experience for guests, staff, receptionists, managers, and admins.
-
-### Key Objectives
-- Provide guests with a self-service portal for bookings, food orders, and service requests
-- Enable staff with a real-time task management interface
-- Give managers live analytics and occupancy dashboards
-- Synchronize all data bi-directionally with ServiceNow REST APIs
-- Achieve 95+ Lighthouse scores across Performance, Accessibility, SEO, and Best Practices
-
----
-
-## 2. Technology Stack
-
-| Layer | Technology | Version |
-|---|---|---|
-| UI Framework | React | 19.x |
-| Build Tool | Vite | 8.x |
-| Styling | Tailwind CSS | 4.x |
-| Routing | React Router DOM | 7.x |
-| State Management | Zustand | 5.x |
-| Animations | Framer Motion | 12.x |
-| Charts | Recharts | 3.x |
-| Icons | Lucide React | 1.x |
-| 3D Graphics | Three.js / R3F | 0.184 |
-| HTTP Client | Axios | 1.x |
-| Auth Backend | Supabase | 2.x |
-| Notifications | EmailJS Browser | 4.x |
-| Data Backend | ServiceNow REST API | — |
-| Testing | Vitest + Testing Library | 4.x |
+## 📖 Table of Contents
+- [Problem Statement](#problem-statement)
+- [Proposed Solution](#proposed-solution)
+- [System Architecture](#system-architecture)
+- [Technologies Used](#technologies-used)
+- [Feature Modules](#feature-modules)
+- [ServiceNow Infrastructure](#servicenow-infrastructure)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Lighthouse Scores](#lighthouse-scores)
 
 ---
 
-## 3. Architecture
+## Problem Statement
+Traditional hotel management often suffers from fragmented communication. Guests face delays in service requests, while staff operate on disconnected task lists. Most hospitality platforms lack a unified, real-time bridge between a high-end user interface and the core enterprise database, leading to inefficiencies and a poor guest experience.
+
+**Qlue-v2 inspired solutions** often overlook the hospitality sector. The Smart Hotel Management System solves this by providing:
+- **Guest Friction**: Zero-touch room selection, digital dining, and instant service requests.
+- **Operational Silos**: Real-time task synchronization between guests and staff.
+- **Data Blindness**: Live, automated analytics for management via the ServiceNow ecosystem.
+
+---
+
+## Proposed Solution
+Our platform (Team 046) is a full-stack, AI-enhanced ecosystem consisting of:
+
+1.  **A Premium React Web Application**: A high-performance, 3D-animated (Three.js/R3F) interface with weather-aware logic, dark/light mode synchronization, and interactive mapping.
+2.  **ServiceNow Enterprise Backend**: A custom scoped application (`x_1939650_smart_0`) that orchestrates all business logic, including automated pricing, SLA monitoring, and task routing.
+3.  **Notifications Service**: A multi-layer delivery system using `react-hot-toast` for in-app feedback, a persistent Activity Timeline, and the Browser Notification API for desktop popups.
+
+---
+
+## System Architecture
+
+![Architecture Diagram](/C:/Users/chitt/.gemini/antigravity/brain/a5d643e7-e1d0-4b50-b56a-89a3a61d0ad7/hotel_web_architecture_v2_1778576742656.png)
+*Figure 1: Smart Hotel High-Level Architecture Diagram*
+
 The system follows a modern "Separation of Concerns" architecture:
-- **Frontend**: React (Vite) for a fast, responsive user interface.
-- **Enterprise Backend**: ServiceNow for data storage, business rules, and workflows.
-- **Authentication**: Supabase for secure guest registration and session management.
-- **Notifications**: Centralized utility for In-app toasts, Browser popups, and Email notifications.
+- **React Web Application**: Manages state via Zustand and communicates via the Table API.
+- **ServiceNow**: Acts as the single source of truth for all transactional data.
+- **Supabase**: Handles scalable user authentication and session management.
+- **Notifications Service**: Centralized handling for emails, toasts, and desktop alerts.
 
 ---
 
-## 4. User Roles & Access
+## Technologies Used
 
-| Role | Login Method | Portal Features |
-|---|---|---|
-| **Customer** | Supabase Email Auth | Book rooms, food orders, service requests, notifications, payments, nearby places, feedback |
-| **Staff** | Supabase Email Auth | Task management, assigned incidents |
-| **Receptionist** | Supabase Email Auth | Check-in/out, guest list |
-| **Manager** | Supabase Email Auth | Analytics, occupancy, revenue charts |
-| **Admin** | `.env` credentials | All portals + Staff Directory (sys_user table) |
+### Frontend
+| Technology | Version | Purpose |
+| :--- | :--- | :--- |
+| **React** | 19.x | UI Framework |
+| **Vite** | 8.x | Build Tool & Dev Server |
+| **Tailwind CSS** | 4.x | Modern Utility-First Styling |
+| **Three.js / R3F** | 0.184 | 3D Visuals & Animations |
+| **Zustand** | 5.x | Lightweight State Management |
+| **Framer Motion** | 12.x | Micro-interactions & Transitions |
+| **Axios** | 1.x | REST API Communication |
+
+### Backend (ServiceNow)
+| Component | Purpose |
+| :--- | :--- |
+| **Table API** | Primary data interface for all modules |
+| **Business Rules** | Automated pricing, ID generation, and assignment |
+| **Flow Designer** | Asynchronous confirmation and notification logic |
+| **Scheduled Jobs** | SLA monitoring and resolution tracking |
 
 ---
 
-## 5. Notification System
-Three-layer architecture (most reliable first):
-1. **Layer 1: react-hot-toast**: Always works (in-app).
-2. **Layer 2: Notification Timeline**: Live activity feed in the dashboard.
-3. **Layer 3: Browser Notification API**: Desktop popups (requires OS permission).
+## Feature Modules
+
+### 1. Guest Portal
+- **Smart Booking**: Real-time room availability with automated pricing logic.
+- **AI-Powered Dining**: Weather-aware food recommendations and digital ordering.
+- **Service Hub**: Instant service requests (incidents) with live status tracking.
+- **Nearby Places**: Interactive Google Maps integration with curated local attractions.
+
+### 2. Staff & Management
+- **Task Management**: Real-time Kanban-style task lists for housekeeping and delivery.
+- **Manager Dashboard**: Live analytics on occupancy, revenue, and SLA performance.
+- **Receptionist Portal**: Streamlined check-in/out and guest management.
 
 ---
 
-## 6. ServiceNow Tables
+## ServiceNow Infrastructure
 
+### Core Tables
 | Table | Purpose |
-|---|---|
-| `x_1939650_smart_0_bookings` | Room reservations |
-| `x_1939650_smart_0_room` | Room inventory & availability |
-| `x_1939650_smart_0_food_orders` | Restaurant / room service orders |
-| `x_1939650_smart_0_guest_incidents` | Service requests & complaints |
-| `x_1939650_smart_0_notifications` | Email/push notification queue |
-| `x_1939650_smart_0_payments` | Billing & payment records |
-| `x_1939650_smart_0_feedback` | Guest reviews and ratings |
-| `x_1939650_smart_0_staff_tasks` | Housekeeping/delivery tasks |
-| `x_1939650_smart_0_sla_metrics` | Response time tracking |
-| `sys_user` | Staff Directory (Admin view) |
+| :--- | :--- |
+| `bookings` | Room reservations and payment status |
+| `room` | Inventory management and real-time occupancy |
+| `food_orders` | Restaurant and room service transactions |
+| `guest_incidents`| Service requests and SLA tracking |
+| `sla_metrics` | Performance auditing and response time logs |
 
 ---
 
-## 7. Run Commands
+## Getting Started
 
+### Prerequisites
+- Node.js ≥ 18
+- ServiceNow Instance (Developer/Enterprise)
+- Supabase Project for Auth
+
+### Installation
 ```bash
-npm install          # Install dependencies
-npm run dev          # Development server → localhost:5173
-npm run build        # Production build → dist/
-npm run preview      # Preview build → localhost:4173 (use for Lighthouse)
-npm run test         # Run Vitest unit tests
+# Clone and install dependencies
+git clone <your-repo-url>
+cd smart-hotel-system
+npm install
+
+# Set up environment variables (.env)
+VITE_SN_INSTANCE=https://your-instance.service-now.com
+VITE_SUPABASE_URL=your_url
+VITE_SUPABASE_ANON_KEY=your_key
+```
+
+### Running Locally
+```bash
+npm run dev      # Development mode
+npm run build    # Production bundle
+npm run preview  # Test production build
 ```
 
 ---
 
-## 8. Lighthouse Scores
-Optimized for:
-- ✅ **Performance**: Code splitting, lazy loading, optimized assets.
-- ✅ **Accessibility**: ARIA labels, semantic HTML, keyboard focus management.
-- ✅ **SEO**: Meta tags, robots.txt, descriptive titles.
+## Lighthouse Scores
+The project is optimized for performance and accessibility, targeting **95+** in all areas:
+- **Performance**: Code-splitting, asset optimization, and lazy loading.
+- **Accessibility**: Full ARIA support, keyboard navigation, and semantic HTML.
+- **SEO**: Dynamic meta tags, robots.txt, and pre-connect hints.
 
 ---
 
-## 9. Developer Info
-- **Team**: PS-046
-- **Lead Developer**: chittemreddypranay
-- **Email**: chittemreddypranay@gmail.com
-- **ServiceNow Instance**: dev189725.service-now.com
+## Project Structure
+```
+smart-hotel-system/
+├── src/
+│   ├── lib/            # ServiceNow & Notification clients
+│   ├── store/          # Zustand auth & state
+│   ├── pages/          # All portal views
+│   └── components/     # Reusable UI components
+├── public/             # Optimized assets
+└── .env.example        # Configuration template
+```
+
+---
+**Team 046** | Novotel Smart Hotel Management System | May 2026
+

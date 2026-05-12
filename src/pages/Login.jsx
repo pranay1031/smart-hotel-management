@@ -115,6 +115,27 @@ export default function Login() {
     }
   };
 
+  const handleAdminQuickFill = () => {
+    const adminEmail = import.meta.env.VITE_ADMIN_EMAIL;
+    const adminPass = import.meta.env.VITE_ADMIN_PASSWORD;
+    
+    if (adminEmail && adminPass) {
+      setEmail(adminEmail);
+      setPassword(adminPass);
+      setIsGuestPortal(false);
+      toast.success('Admin credentials loaded!', { icon: '🔑' });
+    } else {
+      toast.error('Admin credentials not found in environment.');
+    }
+  };
+
+  const handleStaffQuickFill = () => {
+    setEmail('ram@smarthotel.com');
+    setPassword('Aditya@123');
+    setIsGuestPortal(false);
+    toast.success('Staff credentials loaded!', { icon: '🛠️' });
+  };
+
   return (
     <div className="relative w-full h-screen bg-slate-950 overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -238,7 +259,7 @@ export default function Login() {
                 <button type="button" onClick={() => handleQuickLogin('guest@smarthotel.com')} className="px-3 py-2 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 rounded-lg text-xs font-semibold text-emerald-400 transition-colors md:col-span-3">
                   Guest
                 </button>
-                <button type="button" onClick={() => handleQuickLogin('ramu@smarthotel.com')} className="px-3 py-2 bg-white/5 hover:bg-indigo-500/20 border border-white/5 rounded-lg text-xs font-semibold text-slate-300 transition-colors">
+                <button type="button" onClick={handleAdminQuickFill} className="px-3 py-2 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/20 rounded-lg text-xs font-semibold text-indigo-400 transition-colors">
                   Admin
                 </button>
                 <button type="button" onClick={() => handleQuickLogin('krishna@smarthotel.com')} className="px-3 py-2 bg-white/5 hover:bg-blue-500/20 border border-white/5 rounded-lg text-xs font-semibold text-slate-300 transition-colors">
@@ -247,7 +268,7 @@ export default function Login() {
                 <button type="button" onClick={() => handleQuickLogin('sita@smarthotel.com')} className="px-3 py-2 bg-white/5 hover:bg-purple-500/20 border border-white/5 rounded-lg text-xs font-semibold text-slate-300 transition-colors">
                   Reception
                 </button>
-                <button type="button" onClick={() => handleQuickLogin('ravi@smarthotel.com')} className="px-3 py-2 bg-white/5 hover:bg-emerald-500/20 border border-white/5 rounded-lg text-xs font-semibold text-slate-300 transition-colors">
+                <button type="button" onClick={handleStaffQuickFill} className="px-3 py-2 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 rounded-lg text-xs font-semibold text-emerald-400 transition-colors">
                   Staff
                 </button>
               </div>

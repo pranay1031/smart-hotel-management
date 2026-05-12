@@ -57,8 +57,8 @@ export const useAuthStore = create((set, get) => ({
     // Check against ENV credentials for Admin
     if (email === adminEmail && password === adminPass) {
       assignedRole = 'Admin';
-    } else if (emailLower.includes('ramu')) {
-      assignedRole = 'Admin';
+    } else if (emailLower.includes('ram')) {
+      assignedRole = 'Staff';
     } else if (emailLower.includes('krishna')) {
       assignedRole = 'Manager';
     } else if (emailLower.includes('sita')) {
