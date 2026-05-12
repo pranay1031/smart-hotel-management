@@ -1,4 +1,4 @@
-# 🏨 Novotel Smart Hotel — AI-Powered Management System (PS-046)
+# 🏨 Hotel Service Managemrnt — AI-Powered Smart Management System 
 
 An end-to-end, enterprise-grade hospitality platform that integrates a premium React frontend with a robust ServiceNow backend to deliver a seamless "Smart Hotel" experience.
 
@@ -150,5 +150,5 @@ smart-hotel-system/
 ```
 
 ---
-**Team 046** | Novotel Smart Hotel Management System | May 2026
+**Team 046** | Smart Hotel Management System | May 2026
 
