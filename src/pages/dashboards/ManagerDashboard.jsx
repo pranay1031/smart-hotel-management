@@ -32,33 +32,90 @@ export default function ManagerDashboard() {
 
   if (loading) return <div className="flex justify-center items-center h-full"><Loader className="w-8 h-8 text-indigo-400 animate-spin" /></div>;
 
+  const [showRoomForm, setShowRoomForm] = useState(false);
+  const [newRoom, setNewRoom] = useState({ number: '', type: 'Deluxe', price: '', status: 'Available' });
+
   // Process Room Data for Pie Chart
-  const availableCount = rooms.filter(r => r.status === 'Available').length;
-  const occupiedCount = rooms.filter(r => r.status === 'Occupied').length;
-  const maintenanceCount = rooms.filter(r => r.status === 'Maintenance').length;
+  const availableCount = rooms.filter(r => r.u_status === 'Available' || r.status === 'Available').length;
+  const occupiedCount = rooms.filter(r => r.u_status === 'Occupied' || r.status === 'Occupied').length;
+  const maintenanceCount = rooms.filter(r => r.u_status === 'Maintenance' || r.status === 'Maintenance').length;
 
   const roomData = [
-    { name: 'Available', value: availableCount, color: '#34d399' }, // emerald-400
-    { name: 'Occupied', value: occupiedCount, color: '#60a5fa' },   // blue-400
-    { name: 'Maintenance', value: maintenanceCount, color: '#f87171' } // red-400
+    { name: 'Available', value: availableCount, color: '#34d399' },
+    { name: 'Occupied', value: occupiedCount, color: '#60a5fa' },
+    { name: 'Maintenance', value: maintenanceCount, color: '#f87171' }
   ];
 
-  // Process Booking Data for Line/Area Chart (Mocking Last 7 Days Revenue from recent bookings)
-  // In a real scenario, we'd group by created_date. Here we just take the last 7 bookings and pretend they are a timeline
   const revenueData = bookings.slice(-7).map((b, i) => ({
     name: `Day ${i + 1}`,
-    revenue: parseFloat(b.total_price || 0)
+    revenue: parseFloat(b.u_total_price || b.total_price || 0)
   }));
 
-  // SLA Metrics
-  const openIncidents = incidents.filter(i => i.status !== 'Resolved').length;
+  const openIncidents = incidents.filter(i => i.u_status !== 'Resolved' && i.status !== 'Resolved').length;
+
+  const handleAddRoom = async (e) => {
+    e.preventDefault();
+    try {
+      await servicenowAPI.post('/x_1939650_smart_0_room', {
+        u_room_number: newRoom.number,
+        u_room_type: newRoom.type,
+        u_price: newRoom.price,
+        u_status: newRoom.status
+      });
+      // Refresh rooms
+      const res = await servicenowAPI.get('/x_1939650_smart_0_room');
+      setRooms(res.data.result || []);
+      setShowRoomForm(false);
+      setNewRoom({ number: '', type: 'Deluxe', price: '', status: 'Available' });
+    } catch (err) {
+      console.error('Error adding room:', err);
+    }
+  };
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h2 className="text-3xl font-bold text-white mb-2">Manager Analytics</h2>
-        <p className="text-slate-400">Live operational data, revenue tracking, and SLA monitoring.</p>
+    <div className="space-y-6 pb-20">
+      <div className="flex justify-between items-end">
+        <div>
+          <h2 className="text-3xl font-bold text-white mb-2">Manager Analytics</h2>
+          <p className="text-slate-400">Live operational data, revenue tracking, and SLA monitoring.</p>
+        </div>
+        <button 
+          onClick={() => setShowRoomForm(true)}
+          className="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-2 rounded-xl font-bold transition-all shadow-lg shadow-indigo-600/20"
+        >
+          + Add New Room
+        </button>
       </div>
+
+      {showRoomForm && (
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="glass-card p-6 border-l-4 border-emerald-500">
+          <h3 className="text-xl font-bold text-white mb-4">Add New Inventory</h3>
+          <form onSubmit={handleAddRoom} className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <input 
+              type="text" placeholder="Room Number" value={newRoom.number} 
+              onChange={e => setNewRoom({...newRoom, number: e.target.value})}
+              className="glass-input p-2" required
+            />
+            <select 
+              value={newRoom.type} onChange={e => setNewRoom({...newRoom, type: e.target.value})}
+              className="glass-input p-2 text-white"
+            >
+              <option value="Standard">Standard</option>
+              <option value="Deluxe">Deluxe</option>
+              <option value="Suite">Suite</option>
+            </select>
+            <input 
+              type="number" placeholder="Price (₹)" value={newRoom.price} 
+              onChange={e => setNewRoom({...newRoom, price: e.target.value})}
+              className="glass-input p-2" required
+            />
+            <div className="flex space-x-2">
+              <button type="submit" className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg font-bold">Save</button>
+              <button type="button" onClick={() => setShowRoomForm(false)} className="flex-1 bg-white/5 hover:bg-white/10 text-slate-400 rounded-lg">Cancel</button>
+            </div>
+          </form>
+        </motion.div>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass-card p-6 flex items-center space-x-4 border-t-4 border-indigo-500">
@@ -146,3 +203,4 @@ export default function ManagerDashboard() {
     </div>
   );
 }
+

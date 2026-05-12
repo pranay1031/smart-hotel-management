@@ -32,14 +32,54 @@ function AnimatedRoutes() {
               <Dashboard />
             </PageTransition>
           } />
+          <Route path="/book-room" element={
+            <PageTransition>
+              <Dashboard />
+            </PageTransition>
+          } />
+          <Route path="/my-bookings" element={
+            <PageTransition>
+              <Dashboard />
+            </PageTransition>
+          } />
           <Route path="/food-drinks" element={
             <PageTransition>
               <FoodAndDrinks />
             </PageTransition>
           } />
+          <Route path="/services" element={
+            <PageTransition>
+              <Dashboard />
+            </PageTransition>
+          } />
           <Route path="/nearby" element={
             <PageTransition>
               <NearbyPlaces />
+            </PageTransition>
+          } />
+          <Route path="/notifications" element={
+            <PageTransition>
+              <Dashboard />
+            </PageTransition>
+          } />
+          <Route path="/payments" element={
+            <PageTransition>
+              <Dashboard />
+            </PageTransition>
+          } />
+          <Route path="/chat" element={
+            <PageTransition>
+              <Dashboard />
+            </PageTransition>
+          } />
+          <Route path="/feedback" element={
+            <PageTransition>
+              <Dashboard />
+            </PageTransition>
+          } />
+          <Route path="/settings" element={
+            <PageTransition>
+              <Dashboard />
             </PageTransition>
           } />
         </Route>

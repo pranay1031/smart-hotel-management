@@ -8,17 +8,17 @@ import ManagerDashboard from './dashboards/ManagerDashboard';
 export default function Dashboard() {
   const { role } = useAuthStore();
 
-  switch (role) {
-    case 'Admin':
-      return <AdminDashboard />;
-    case 'Staff':
-      return <StaffDashboard />;
-    case 'Receptionist':
-      return <ReceptionistDashboard />;
-    case 'Manager':
-      return <ManagerDashboard />;
-    case 'Customer':
-    default:
-      return <CustomerDashboard />;
+  if (role !== 'Customer') {
+    switch (role) {
+      case 'Admin': return <AdminDashboard />;
+      case 'Staff': return <StaffDashboard />;
+      case 'Receptionist': return <ReceptionistDashboard />;
+      case 'Manager': return <ManagerDashboard />;
+      default: return <CustomerDashboard />;
+    }
   }
+
+  // Handle Customer sub-pages
+  const location = window.location.pathname;
+  return <CustomerDashboard view={location} />;
 }

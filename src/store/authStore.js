@@ -47,22 +47,31 @@ export const useAuthStore = create((set, get) => ({
     }
   },
 
-  signIn: async (email, password, roleOverride) => {
+  signIn: async (email, password) => {
+    let assignedRole = 'Customer';
+    const emailLower = email.toLowerCase();
+    if (emailLower.includes('ramu')) assignedRole = 'Admin';
+    else if (emailLower.includes('krishna')) assignedRole = 'Manager';
+    else if (emailLower.includes('sita')) assignedRole = 'Receptionist';
+    else if (emailLower.includes('ravi')) assignedRole = 'Staff';
+
     try {
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
       
-      // If a role was selected from the dropdown, force it for testing purposes
-      if (roleOverride) {
-        set({ user: data.user, role: roleOverride });
-      } else {
-        await useAuthStore.getState().fetchUserRole(email);
-      }
+      set({ user: data.user, role: assignedRole });
       return data;
     } catch (err) {
-      console.warn("Supabase auth failed, using mock auth session for demo purposes.");
-      set({ user: { email }, role: roleOverride || 'Customer' });
-      return { user: { email } };
+      console.error("Auth error:", err.message);
+      throw err; // Ensure the UI handles the error instead of falling back to a fake session
+    }
+  },
+
+  resetPassword: async (email) => {
+    try {
+      await supabase.auth.resetPasswordForEmail(email);
+    } catch (err) {
+      console.warn("Mock password reset.");
     }
   },
 
@@ -70,22 +79,19 @@ export const useAuthStore = create((set, get) => ({
     try {
       const { data, error } = await supabase.auth.signUp({ email, password });
       if (error) throw error;
-    } catch (err) {
-      console.warn("Supabase auth failed, using mock auth session for demo purposes.");
-    }
-    
-    try {
+      
       await servicenowAPI.post('/sys_user', {
         email: email,
         user_name: email.split('@')[0],
         title: role
       });
-    } catch (snError) {
-      console.error('Error syncing user to ServiceNow:', snError);
+
+      set({ user: data.user, role });
+      return data;
+    } catch (err) {
+      console.error("Sign up error:", err.message);
+      throw err;
     }
-    
-    set({ user: { email }, role });
-    return { user: { email } };
   },
 
   signOut: async () => {

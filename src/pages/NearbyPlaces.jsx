@@ -1,72 +1,156 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Navigation } from 'lucide-react';
+import { MapPin, Navigation, Clock, Star, Loader } from 'lucide-react';
+import { servicenowAPI } from '../lib/servicenow';
 
 export default function NearbyPlaces() {
+  const [selectedPlace, setSelectedPlace] = useState(null);
+
+  const novotelLocation = {
+    name: "Novotel Visakhapatnam Varun Beach",
+    address: "RK Beach Rd, Maharani Peta, Vizag",
+    coords: { lat: 17.7107, lng: 83.3174 }
+  };
+
   const places = [
-    { id: 1, name: 'Oceanarium', distance: '1.2 km', type: 'Attraction', image: 'https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=600&q=80' },
-    { id: 2, name: 'City Center Mall', distance: '2.5 km', type: 'Shopping', image: 'https://images.unsplash.com/photo-1519567241046-7f61c60f2ee8?auto=format&fit=crop&w=600&q=80' },
-    { id: 3, name: 'Sunset Beach', distance: '0.5 km', type: 'Nature', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80' },
-    { id: 4, name: 'Historic Museum', distance: '3.0 km', type: 'Culture', image: 'https://images.unsplash.com/photo-1518998053401-a4149019a8f2?auto=format&fit=crop&w=600&q=80' },
+    { 
+      name: "RK Beach", 
+      dist: "0.1 km", 
+      time: "2 min walk", 
+      category: "Nature", 
+      image: "https://images.unsplash.com/photo-1590523741491-030f25232997?auto=format&fit=crop&w=400&q=80", 
+      rating: 4.8,
+      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d3800.2785006323447!2d83.31512167576595!3d17.71076298323862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39431489e5306d%3A0x2d1746f3a749365!2sRamakrishna%20Mission%20Beach!5e0!3m2!1sen!2sin!4v1715462000000!5m2!1sen!2sin"
+    },
+    { 
+      name: "INS Kursura Submarine", 
+      dist: "1.2 km", 
+      time: "4 min drive", 
+      category: "Museum", 
+      image: "https://images.unsplash.com/photo-1596422846543-b5c641617939?auto=format&fit=crop&w=400&q=80", 
+      rating: 4.9,
+      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d3800.0!2d83.3!3d17.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3943156942c73d%3A0xe76464817a3a0c70!2sINS%20Kursura%20Submarine%20Museum!5e0!3m2!1sen!2sin!4v1715462000001!5m2!1sen!2sin"
+    },
+    { 
+      name: "VUDA Park", 
+      dist: "2.5 km", 
+      time: "7 min drive", 
+      category: "Park", 
+      image: "https://images.unsplash.com/photo-1585938338670-d0140232491a?auto=format&fit=crop&w=400&q=80", 
+      rating: 4.5,
+      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d3800.1!2d83.32!3d17.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3943166942c73d%3A0xe76464817a3a0c70!2sVuda%20Park!5e0!3m2!1sen!2sin!4v1715462000002!5m2!1sen!2sin"
+    },
+    { 
+      name: "Kailasagiri", 
+      dist: "6.8 km", 
+      time: "15 min drive", 
+      category: "Attraction", 
+      image: "https://images.unsplash.com/photo-1623945227064-358602c71b6e?auto=format&fit=crop&w=400&q=80", 
+      rating: 4.7,
+      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d3800.5!2d83.35!3d17.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3943376942c73d%3A0xe76464817a3a0c70!2sKailasagiri!5e0!3m2!1sen!2sin!4v1715462000003!5m2!1sen!2sin"
+    },
+    { 
+      name: "Rushikonda Beach", 
+      dist: "11.2 km", 
+      time: "25 min drive", 
+      category: "Beach", 
+      image: "https://images.unsplash.com/photo-1626014303757-640c4251ba74?auto=format&fit=crop&w=400&q=80", 
+      rating: 4.9,
+      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d3801.0!2d83.38!3d17.78!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3943486942c73d%3A0xe76464817a3a0c70!2sRushikonda%20Beach!5e0!3m2!1sen!2sin!4v1715462000004!5m2!1sen!2sin"
+    }
   ];
 
+  const currentMapUrl = selectedPlace ? selectedPlace.mapUrl : "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15201.114002529377!2d83.317422!3d17.710763!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3943399086e107%3A0xe54d45543c7b395d!2sNovotel%20Visakhapatnam%20Varun%20Beach!5e0!3m2!1sen!2sin!4v1715461234567!5m2!1sen!2sin";
+
   return (
-    <div className="space-y-6 h-full flex flex-col">
-      <div>
-        <h2 className="text-3xl font-bold text-white mb-2">Nearby Places</h2>
-        <p className="text-slate-400">Explore attractions around the hotel.</p>
+    <div className="space-y-6 pb-20">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <h2 className="text-3xl font-bold text-white mb-2">Explore Vizag</h2>
+          <p className="text-slate-400">Discover attractions near <span className="text-indigo-400 font-bold">Novotel Varun Beach</span>.</p>
+        </div>
+        <div className="glass-panel px-4 py-2 rounded-xl flex items-center space-x-3 border border-white/5">
+          <div className="w-8 h-8 bg-indigo-500/20 rounded-lg flex items-center justify-center">
+            <Navigation className="w-4 h-4 text-indigo-400" />
+          </div>
+          <div>
+            <p className="text-[10px] text-slate-500 uppercase font-bold">Base Location</p>
+            <p className="text-xs text-white font-bold">Beach Road, Vizag</p>
+          </div>
+        </div>
       </div>
 
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Mock Map View */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Map View */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="lg:col-span-2 glass-panel rounded-3xl overflow-hidden relative min-h-[400px]"
+          key={currentMapUrl}
+          className="lg:col-span-2 glass-panel rounded-3xl overflow-hidden relative min-h-[500px] border border-white/10 shadow-2xl"
         >
-          <div className="absolute inset-0 bg-slate-800 flex items-center justify-center bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-0" />
-            <div className="text-center z-10">
-              <MapPin className="w-16 h-16 text-indigo-500 mx-auto mb-4 animate-bounce" />
-              <h3 className="text-2xl font-bold text-white">Interactive Map</h3>
-              <p className="text-slate-400">Map integration goes here.</p>
+          <iframe 
+            src={currentMapUrl} 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%)' }} 
+            allowFullScreen="" 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            className="absolute inset-0"
+          ></iframe>
+          
+          <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end pointer-events-none">
+            <div className="glass-panel p-5 rounded-2xl border border-white/10 max-w-sm pointer-events-auto">
+              <div className="flex items-center space-x-3 mb-2">
+                <div className="w-10 h-10 bg-indigo-500 rounded-xl flex items-center justify-center">
+                  <MapPin className="text-white" size={20} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white">{selectedPlace ? selectedPlace.name : 'Novotel Varun Beach'}</h4>
+                  <p className="text-[10px] text-indigo-300 font-bold uppercase tracking-widest">{selectedPlace ? selectedPlace.category : 'Current Location'}</p>
+                </div>
+              </div>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                {selectedPlace 
+                  ? `Located ${selectedPlace.dist} away. Approximately ${selectedPlace.time} from Novotel.`
+                  : "You are currently staying at the premier destination on the Vizag coastline."}
+              </p>
             </div>
             
-            {/* Mock map markers */}
-            <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-rose-500 rounded-full shadow-[0_0_15px_rgba(244,63,94,0.5)]"></div>
-            <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-emerald-500 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.5)]"></div>
-            <div className="absolute bottom-1/3 left-1/2 w-4 h-4 bg-amber-500 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.5)]"></div>
+            <button className="glass-panel p-3 rounded-full border border-white/10 pointer-events-auto hover:bg-white/10 transition-colors">
+              <Expand className="text-white" size={20} />
+            </button>
           </div>
         </motion.div>
 
-        {/* Places List */}
-        <div className="space-y-4 overflow-y-auto pr-2 custom-scrollbar">
+        {/* Attractions List */}
+        <div className="space-y-4 h-[500px] overflow-y-auto pr-2 custom-scrollbar">
           {places.map((place, idx) => (
             <motion.div
-              key={place.id}
+              key={idx}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: idx * 0.1 }}
-              className="glass-card overflow-hidden group cursor-pointer"
+              whileHover={{ scale: 1.02, x: 5 }}
+              onClick={() => setSelectedPlace(place)}
+              className={`glass-card p-4 flex items-center space-x-4 cursor-pointer border transition-all ${
+                selectedPlace?.name === place.name ? 'border-indigo-500/50 bg-indigo-500/5' : 'border-white/5 hover:border-white/20'
+              }`}
             >
-              <div className="h-32 w-full overflow-hidden">
-                <img 
-                  src={place.image} 
-                  alt={place.name} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+              <div className="w-20 h-20 rounded-xl overflow-hidden shrink-0">
+                <img src={place.image} alt={place.name} className="w-full h-full object-cover" />
               </div>
-              <div className="p-4">
-                <div className="flex justify-between items-start mb-2">
-                  <h4 className="font-bold text-white text-lg">{place.name}</h4>
-                  <span className="text-xs font-semibold bg-indigo-500/20 text-indigo-300 px-2 py-1 rounded-md">
-                    {place.type}
-                  </span>
+              <div className="flex-1">
+                <div className="flex justify-between items-start">
+                  <h4 className="font-bold text-white text-sm">{place.name}</h4>
+                  <div className="flex items-center text-amber-400 text-[10px] font-bold">
+                    <Star size={8} className="mr-1 fill-amber-400" /> {place.rating}
+                  </div>
                 </div>
-                <div className="flex items-center justify-between text-sm text-slate-400">
-                  <span className="flex items-center"><MapPin size={14} className="mr-1"/> {place.distance}</span>
-                  <button className="text-indigo-400 hover:text-white flex items-center transition-colors">
-                    <Navigation size={14} className="mr-1"/> Directions
-                  </button>
+                <p className="text-[10px] text-slate-500 uppercase font-bold mb-2 tracking-tighter">{place.category}</p>
+                <div className="flex items-center justify-between text-[10px] text-slate-400">
+                  <span className="flex items-center"><MapPin size={10} className="mr-1 text-rose-400" /> {place.dist}</span>
+                  <span className="flex items-center"><Clock size={10} className="mr-1 text-emerald-400" /> {place.time}</span>
                 </div>
               </div>
             </motion.div>

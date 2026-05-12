@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
-import { LogOut, Home, Coffee, Map, Loader } from 'lucide-react';
+import { LogOut, Home, Coffee, Map, Loader, BedDouble, Calendar, Wrench, Bell, CreditCard, MessageSquare, Star, Settings } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Layout() {
@@ -36,10 +36,10 @@ export default function Layout() {
     updateTime();
     const timer = setInterval(updateTime, 1000);
 
-    // Weather setup (New Delhi)
+    // Weather setup (Visakhapatnam - Vizag)
     const fetchWeather = async () => {
       try {
-        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=28.6139&longitude=77.2090&current_weather=true');
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=17.6868&longitude=83.2185&current_weather=true');
         const data = await res.json();
         const code = data.current_weather.weathercode;
         let condition = 'Clear';
@@ -87,8 +87,15 @@ export default function Layout() {
 
   if (role === 'Customer') {
     navItems.push(
+      { name: 'Book Room', path: '/book-room', icon: BedDouble },
+      { name: 'My Bookings', path: '/my-bookings', icon: Calendar },
       { name: 'Food & Drinks', path: '/food-drinks', icon: Coffee },
-      { name: 'Nearby Places', path: '/nearby', icon: Map }
+      { name: 'Room Services', path: '/services', icon: Wrench },
+      { name: 'Nearby Places', path: '/nearby', icon: Map },
+      { name: 'Notifications', path: '/notifications', icon: Bell },
+      { name: 'Payments', path: '/payments', icon: CreditCard },
+      { name: 'Feedback', path: '/feedback', icon: Star },
+      { name: 'Settings', path: '/settings', icon: Settings }
     );
   }
 
