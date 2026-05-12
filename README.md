@@ -38,7 +38,7 @@ Our platform (Team 046) is a full-stack, AI-enhanced ecosystem consisting of:
 
 ## System Architecture
 
-![Architecture Diagram](/C:/Users/chitt/.gemini/antigravity/brain/a5d643e7-e1d0-4b50-b56a-89a3a61d0ad7/hotel_web_architecture_v2_1778576742656.png)
+![Architecture Diagram](./docs/images/architecture_diagram.png)
 *Figure 1: Smart Hotel High-Level Architecture Diagram*
 
 The system follows a modern "Separation of Concerns" architecture:

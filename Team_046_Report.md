@@ -13,7 +13,7 @@ Our team (Team 046) set out to redefine the digital guest experience for Novotel
 ## 2. System Architecture
 The backbone of our system is a modern "Separation of Concerns" architecture. We use React for a dynamic, reactive frontend, ServiceNow for the enterprise-grade database and business logic, and Supabase for secure, scalable authentication.
 
-![Architecture Diagram](file:///C:/Users/chitt/.gemini/antigravity/brain/a5d643e7-e1d0-4b50-b56a-89a3a61d0ad7/hotel_system_architecture_1778571364544.png)
+![Architecture Diagram](./docs/images/architecture_diagram.png)
 *Figure 1: Smart Hotel High-Level Architecture Diagram*
 
 ---
